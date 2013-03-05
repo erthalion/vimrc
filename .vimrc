@@ -316,9 +316,9 @@ imap <F3> <esc>:copen<cr>
 "imap <F7> <esc>:bn<cr>i
 
 " F8 - список закладок
-map <F8> :MarksBrowser<cr>
-vmap <F8> <esc>:MarksBrowser<cr>
-imap <F8> <esc>:MarksBrowser<cr>
+"map <F8> :MarksBrowser<cr>
+"vmap <F8> <esc>:MarksBrowser<cr>
+"imap <F8> <esc>:MarksBrowser<cr>
 
 " F9 - "make" команда
 "map <F9> :make<cr>
@@ -455,6 +455,37 @@ autocmd BufNewFile,BufRead *.java set formatprg=astyle\ -T4A1
 "autocmd BufWritePre *.cpp !astyle -T4A1 <afile>
 "autocmd BufWritePre *.cs !astyle -T4A1 <afile>
 "autocmd BufWritePre *.java !astyle -T4A1 <afile>
+
+"cmake
+let g:cmake_build_type = 'Debug'
+
+function! SetCppStatusLine()
+    set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P\ Git:\ %{GitBranch()}\ BuildType:\ %{g:cmake_build_type}
+endfunction
+au FileType c,cc,cpp,h,hpp,s call SetCppStatusLine()
+
+function! ToggleCmakeBuildType()
+    if g:cmake_build_type == 'Debug'
+        let g:cmake_build_type = 'Release'
+    else
+        let g:cmake_build_type = 'Debug'
+    endif
+endfunction
+
+function! CmakeBuild()
+    silent !clear
+    execute "!cmake -DCMAKE_BUILD_TYPE=" . g:cmake_build_type . " ."
+    execute 'cw'
+endfunction
+
+function! BindCmake()
+    map <F7> :call ToggleCmakeBuildType()<cr>
+    imap <F7> <esc> :call ToggleCmakeBuildType()<cr>
+
+    map <F8> :call CmakeBuild()<cr>
+    imap <F8> <esc> :call CmakeBuild()<cr>
+endfunction
+au FileType c,cc,cpp,h,hpp,s call BindCmake()
 
 function! BindF5_C()
     if filereadable("Makefile")
