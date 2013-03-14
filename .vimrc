@@ -1,53 +1,3 @@
-" All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
-" /usr/share/vim/vimcurrent/debian.vim) and sourced by the call to :runtime
-" you can find below.  If you wish to change any of those settings, you should
-" do it in this file (/etc/vim/vimrc), since debian.vim will be overwritten
-" everytime an upgrade of the vim packages is performed.  It is recommended to
-" make changes after sourcing debian.vim since it alters the value of the
-" 'compatible' option.
-
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
-runtime! debian.vim
-
-" Uncomment the next line to make Vim more Vi-compatible
-" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
-" options, so any other options should be set AFTER setting 'compatible'.
-"set compatible
-
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
-" line enables syntax highlighting by default.
-"if has("syntax")
-"  syntax on
-"endif
-
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-"set background=dark
-
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
-"if has("autocmd")
-"  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-"endif
-
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
-"if has("autocmd")
-"  filetype plugin indent on
-"endif
-
-" The following are commented out as they cause vim to behave a lot
-" differently from regular Vi. They are highly recommended though.
-"set showcmd		" Show (partial) command in status line.
-"set showmatch		" Show matching brackets.
-"set ignorecase		" Do case insensitive matching
-"set smartcase		" Do smart case matching
-"set incsearch		" Incremental search
-"set autowrite		" Automatically save before commands like :next and :make
-"set hidden             " Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes)
-
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
@@ -95,7 +45,6 @@ Bundle 'Git-Branch-Info'
 Bundle 'motemen/git-vim'
 Bundle 'python.vim'
 Bundle 'mileszs/ack.vim'
-"Bundle 'django.vim'
 Bundle 'mjbrownie/pythoncomplete.vim'
 Bundle 'lambdalisue/vim-django-support'
 Bundle 'nvie/vim-flake8'
@@ -107,6 +56,9 @@ Bundle 'mattn/webapi-vim'
 Bundle 'pythoncomplete'
 Bundle 'erthalion/easy-doc.vim'
 Bundle 'klen/python-mode'
+Bundle 'ervandew/supertab'
+Bundle 'kien/ctrlp.vim'
+Bundle 'edsono/vim-matchit'
 " dont forget copy snippets from
 " https://github.com/robhudson/snipmate_for_django
 
@@ -116,7 +68,8 @@ filetype plugin indent on " обязательно!
 
 " Maximum size of file in megabytes (for enable largefile plugin)
 let g:LargeFile=10
-"let g:pydiction_location='/home/user/.vim/bundle/Pydiction/complete-dict'
+
+let g:pymode_breakpoint_key = "<leader>br"
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 let g:pymode_lint_write = 0
@@ -141,7 +94,7 @@ let g:pymode_rope_confirm_saving = 1
 let g:pymode_rope_global_prefix = "<C-x>p"
 let g:pymode_rope_local_prefix = "<C-c>r"
 let g:pymode_rope_vim_completion = 1
-let g:pymode_rope_guess_project = 1
+let g:pymode_rope_guess_project = 0
 let g:pymode_rope_goto_def_newwin = ""
 let g:pymode_rope_always_show_complete_menu = 0
 " Enable python folding
@@ -190,6 +143,7 @@ let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
 " For fast machines
 let g:pymode_syntax_slow_sync = 0
 
+set wrap
 set hlsearch
 set cursorline
 set nobackup
@@ -223,7 +177,7 @@ syntax on
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 set expandtab
 
-set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P\ Git:\ %{GitBranch()} 
+set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P\ Git:\ %{GitBranch()}
 set laststatus=2
 set smartindent
 set smarttab
@@ -240,16 +194,15 @@ let NERDTreeIgnore = ['\.pyc$','\.orig$','\.rej$']
 
 "-------------------------vim
 "vim Горячие клавишы
-"-------------------------
-"nmap <F4> :tabnew <bar> :NERDTreeToggle<cr>
-"vmap <F4> <esc> :tabnew <bar> :NERDTreeToggle<cr>i
-"imap <F4> <esc> :tabnew <bar> :NERDTreeToggle<cr>i
+"
+"unmap F1 & F3
+nmap <F1> <nop>
+map <F1> <Esc>
+imap <F1> <Esc>
+
 nmap <leader>tn :tabnew <bar> :NERDTreeToggle<cr>i
 
-"Tab switching
-"nmap <F6> :tabnext<cr>
-"vmap <F6> <esc> :tabnext<cr>i
-"imap <F6> <esc> :tabnext<cr>i
+imap <F6> <esc> :tabnext<cr>i
 nmap <leader>n :tabnext<cr>
 nmap <leader>b :tabprevious<cr>
 
@@ -286,59 +239,18 @@ imap <C-d> <esc>yypi
 nmap ; :%s/\<<c-r>=expand("<cword>")<cr>\>/
 
 " F2 - быстрое сохранение
-"nmap <F2>gggqG\|:w%<cr>
-"vmap <F2> <esc>gggqG\|:w%<cr>i
-"imap <F2> <esc>gggqG\|:w%<cr>i
 nmap <F2> :w<cr>
 inoremap <F2> <c-o>:w<cr>
-"vmap <F2> <esc> :w<cr>i
-"imap <F2> <esc> :w<cr>i
-
-" F3 - просмотр ошибок
-nmap <F3> :copen<cr>
-vmap <F3> <esc>:copen<cr>
-imap <F3> <esc>:copen<cr>
-
-" F5 - просмотр списка буферов
-"nmap <F5> <Esc>:BufExplorer<cr>
-"vmap <F5> <esc>:BufExplorer<cr>
-"imap <F5> <esc><esc>:BufExplorer<cr>
-
-
-" F6 - предыдущий буфер
-"map <F6> :bp<cr>
-"vmap <F6> <esc>:bp<cr>i
-"imap <F6> <esc>:bp<cr>i
-
-" F7 - следующий буфер
-"map <F7> :bn<cr>
-"vmap <F7> <esc>:bn<cr>i
-"imap <F7> <esc>:bn<cr>i
-
+"
 " F8 - список закладок
-"map <F8> :MarksBrowser<cr>
-"vmap <F8> <esc>:MarksBrowser<cr>
-"imap <F8> <esc>:MarksBrowser<cr>
-
-" F9 - "make" команда
-"map <F9> :make<cr>
-"vmap <F9> <esc>:make<cr>i
-"imap <F9> <esc>:make<cr>i
-
-" F10 - удалить буфер
-"map <F10> :bd<cr>
-"vmap <F10> <esc>:bd<cr>
-"imap <F10> <esc>:bd<cr>
+map <F8> :MarksBrowser<cr>
+vmap <F8> <esc>:MarksBrowser<cr>
+imap <F8> <esc>:MarksBrowser<cr>
 
 " F11 - показать окно Taglist
 map <F10> :TlistToggle<cr>
 vmap <F10> <esc>:TlistToggle<cr>
 imap <F10> <esc>:TlistToggle<cr>
-
-" F12 - обозреватель файлов
-"map <F12> :Ex<cr>
-"vmap <F12> <esc>:Ex<cr>i
-"imap <F12> <esc>:Ex<cr>i
 
 " < & > - делаем отступы для блоков
 vmap < <gv
@@ -367,17 +279,6 @@ imap {<CR> {<CR>}<Esc>O
 "map <C-Q> <Esc>:qa<cr>
 
 filetype on
-" Автозавершение слов по tab =)
-function InsertTabWrapper()
-     let col = col('.') - 1
-     if !col || getline('.')[col - 1] !~ '\k'
-         return "\<tab>"
-     else
-         return "\<c-p>"
-     endif
-endfunction
-imap <tab> <c-r>=InsertTabWrapper()<cr>
-
 " Слова откуда будем завершать
 set complete=""
 " Из текущего буфера
@@ -390,9 +291,6 @@ set complete+=b
 set complete+=t
 
 set nocp
-"filetype on
-"filetype indent on
-"filetype plugin on
 au BufRead,BufNewFile *.phps    set filetype=php
 au BufRead,BufNewFile *.thtml    set filetype=php
 
@@ -407,21 +305,9 @@ set completeopt-=preview
 set completeopt+=longest
 set mps-=[:]
 
-"Настройки табов для Python, согласно рекоммендациям
-
-"set tabstop=4 
-"set shiftwidth=4
-"set smarttab
-"set expandtab "Ставим табы пробелами
-"set softtabstop=4 "4 пробела в табе
-
 "Подсвечиваем все что можно подсвечивать
 
 let python_highlight_all = 1
-
-"Включаем 256 цветов в терминале, мы ведь работаем из иксов?
-"Нужно во многих терминалах, например в gnome-terminal
-
 
 autocmd FileType python set ft=python.django " For SnipMate
 autocmd FileType html set ft=htmldjango.html " For SnipMate
@@ -432,13 +318,12 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 "autocmd FileType cs set omnifunc=cscomplete#CompleteCS
 "autocmd FileType cs set omnifunc=syntaxcomplete#Complete
-"Перед сохранением вырезаем пробелы на концах (только в .py файлах)
 
-"autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+"Перед сохранением вырезаем пробелы на концах (только в .py файлах)
+autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 
 "В .py файлах включаем умные отступы после ключевых слов
-
-"autocmd BufRead *.py set smartindent "cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd BufRead *.py set smartindent"cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 "all themes are in /usr/share/vim/vim73/colors
 if exists('$DISPLAY')
@@ -452,9 +337,6 @@ endif
 autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4A1
 autocmd BufNewFile,BufRead *.cs set formatprg=astyle\ -T4A1
 autocmd BufNewFile,BufRead *.java set formatprg=astyle\ -T4A1
-"autocmd BufWritePre *.cpp !astyle -T4A1 <afile>
-"autocmd BufWritePre *.cs !astyle -T4A1 <afile>
-"autocmd BufWritePre *.java !astyle -T4A1 <afile>
 
 "cmake
 let g:cmake_build_type = 'Debug'
