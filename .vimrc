@@ -59,6 +59,7 @@ Bundle 'klen/python-mode'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
 Bundle 'edsono/vim-matchit'
+Bundle 'ivanov/vim-ipython'
 " dont forget copy snippets from
 " https://github.com/robhudson/snipmate_for_django
 
