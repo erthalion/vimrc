@@ -296,7 +296,7 @@ set complete+=t
 set nocp
 au BufRead,BufNewFile *.phps    set filetype=php
 au BufRead,BufNewFile *.thtml    set filetype=php
-au BufRead,BufNewFile *.txt    set syntax=asciidoc
+au BufRead,BufNewFile *.adoc    set syntax=asciidoc
 
 " Настройки для SessionMgr
 let g:SessionMgr_AutoManage = 0
