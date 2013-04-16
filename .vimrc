@@ -61,6 +61,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'edsono/vim-matchit'
 Bundle 'ivanov/vim-ipython'
 Bundle 'xaizek/vim-inccomplete'
+Bundle 'gavinheavyside/vim-asciidoc'
 " dont forget copy snippets from
 " https://github.com/robhudson/snipmate_for_django
 
@@ -295,6 +296,7 @@ set complete+=t
 set nocp
 au BufRead,BufNewFile *.phps    set filetype=php
 au BufRead,BufNewFile *.thtml    set filetype=php
+au BufRead,BufNewFile *.txt    set syntax=asciidoc
 
 " Настройки для SessionMgr
 let g:SessionMgr_AutoManage = 0
