@@ -62,6 +62,8 @@ Bundle 'edsono/vim-matchit'
 Bundle 'ivanov/vim-ipython'
 Bundle 'xaizek/vim-inccomplete'
 Bundle 'gavinheavyside/vim-asciidoc'
+Bundle 'tpope/vim-abolish'
+Bundle 'camelcasemotion'
 " dont forget copy snippets from
 " https://github.com/robhudson/snipmate_for_django
 
