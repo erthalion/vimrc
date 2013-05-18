@@ -64,12 +64,19 @@ Bundle 'xaizek/vim-inccomplete'
 Bundle 'gavinheavyside/vim-asciidoc'
 Bundle 'tpope/vim-abolish'
 Bundle 'camelcasemotion'
+Bundle 'mikewest/vimroom'
 " dont forget copy snippets from
 " https://github.com/robhudson/snipmate_for_django
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on " обязательно!
+
+""" Vimroom
+"let g:vimroom_background = "black"
+let g:vimroom_min_sidebar_width = 5
+let g:vimroom_sidebar_height = 5
+let g:vimroom_width = 100
 
 " Maximum size of file in megabytes (for enable largefile plugin)
 let g:LargeFile=10
@@ -427,5 +434,14 @@ function! BindTag_Python()
 	map <C-F12> :!ctags -R --python-kinds=-i<CR>
 endfunction
 au FileType python call BindTag_Python()
+
+
+""" For Vimroom
+function! Read()
+    execute ":NERDTreeClose"
+    execute ":set nocursorline"
+    execute ":set nonumber"
+    execute ":VimroomToggle"
+endfunction
 
 au VimEnter *  NERDTree
