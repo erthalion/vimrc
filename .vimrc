@@ -65,6 +65,7 @@ Bundle 'gavinheavyside/vim-asciidoc'
 Bundle 'tpope/vim-abolish'
 Bundle 'camelcasemotion'
 Bundle 'mikewest/vimroom'
+Bundle 'vcscommand.vim'
 " dont forget copy snippets from
 " https://github.com/robhudson/snipmate_for_django
 
@@ -271,6 +272,12 @@ vmap > >gv
 " Выключаем ненавистный режим замены
 imap >Ins> <Esc>i
 
+" \d - Go to definition (rope)
+map <leader>def :RopeGotoDefinition<cr>
+vmap <leader>def :RopeGotoDefinition<cr>
+imap <leader>def :RopeGotoDefinition<cr>
+
+
 set pastetoggle=<F3>
 
 " Меню выбора кодировки текста (koi8-r, cp1251, cp866, utf8)
@@ -442,6 +449,13 @@ function! Read()
     execute ":set nocursorline"
     execute ":set nonumber"
     execute ":VimroomToggle"
+endfunction
+
+
+""" For vcprompt
+function! GetVcpromptBranch()
+    let result = system('vcprompt')
+    return result
 endfunction
 
 au VimEnter *  NERDTree
