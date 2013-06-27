@@ -459,3 +459,6 @@ function! GetVcpromptBranch()
 endfunction
 
 au VimEnter *  NERDTree
+"
+""" For ru lang
+set langmap=ёйцукенгшщзхъфывапролджэячсмитьбю;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.,ЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
