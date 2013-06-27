@@ -462,3 +462,18 @@ au VimEnter *  NERDTree
 "
 """ For ru lang
 set langmap=ёйцукенгшщзхъфывапролджэячсмитьбю;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.,ЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
+
+map <F4>  :call TRANSLATE()<cr>
+function TRANSLATE()
+   let  a=getline('.')
+   let co=col('.')-1
+   let starts=strridx(a," ",co)
+   let ends = stridx(a," ",co)
+   if ends==-1
+       let ends=strlen(a)
+   endif
+   let res = strpart(a,starts+1,ends-starts)
+   let cmds = "~/.cabal/bin/gtc en ru " . res
+   let out = system(cmds)
+   echo out
+endfunction
