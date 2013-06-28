@@ -156,6 +156,16 @@ let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
 " For fast machines
 let g:pymode_syntax_slow_sync = 0
 
+set autoread
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+" Show matching brackets when text indicator is over them
+set showmatch
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
 set wrap
 set hlsearch
 set cursorline
@@ -182,6 +192,9 @@ else
     set encoding=utf8
 endif
 
+set fileencoding=utf-8
+set fileencodings=utf8,koi8r,cp1251,cp866
+
 set hidden
 set ch=1
 set mousehide
@@ -190,7 +203,7 @@ syntax on
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 set expandtab
 
-set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P\ Git:\ %{GitBranch()}
+set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P\ Git:\ %{GitBranch()}\ %{HasPaste()}
 set laststatus=2
 set smartindent
 set smarttab
@@ -224,7 +237,7 @@ nmap <leader>q :tabclose<cr>
 
 
 "Clear search selection
-nmap <leader>cls :let @/ = ""<cr>
+nmap <leader>cls :noh<cr>
 
 nmap <C-T> <C-W><C-W>
 " Пробел в нормальном режиме перелистывает страницы
@@ -283,6 +296,11 @@ set pastetoggle=<F3>
 " Меню выбора кодировки текста (koi8-r, cp1251, cp866, utf8)
 "set wildmode=longest,list,full
 set wildmenu
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+
+
 set wcm=<Tab> 
 menu Encoding.koi8-r :e ++enc=koi8-r<CR>
 menu Encoding.windows-1251 :e ++enc=cp1251<CR>
@@ -476,4 +494,35 @@ function TRANSLATE()
    let cmds = "~/.cabal/bin/gtc en ru " . res
    let out = system(cmds)
    echo out
+endfunction
+
+" Запуск проверки правописания
+
+setlocal spell spelllang=
+setlocal nospell
+function ChangeSpellLang()
+    if &spelllang =~ "en_us"
+        setlocal spell spelllang=ru
+        echo "spelllang: ru"
+    elseif &spelllang =~ "ru"
+        setlocal spell spelllang=
+        setlocal nospell
+        echo "spelllang: off"
+    else
+        setlocal spell spelllang=en_us
+        echo "spelllang: en"
+    endif
+endfunc
+
+" map spell on/off for English/Russian
+map <leader>spl <Esc>:call ChangeSpellLang()<CR>
+
+" Toggle paste mode on and off
+map <leader>pp :setlocal paste!<cr>
+
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    en
+    return ''
 endfunction
