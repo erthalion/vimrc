@@ -33,7 +33,6 @@ Bundle 'othree/html5.vim'
 Bundle 'closetag.vim'
 Bundle 'Better-CSS-Syntax-for-Vim'
 Bundle 'OmniCppComplete'
-Bundle 'taglist.vim'
 Bundle 'TaskList.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'pyflakes.vim'
@@ -66,12 +65,26 @@ Bundle 'tpope/vim-abolish'
 Bundle 'camelcasemotion'
 Bundle 'mikewest/vimroom'
 Bundle 'vcscommand.vim'
+Bundle 'TwitVim'
+Bundle 'hgrev'
+" pip install powerline
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" pip install jedi
+Bundle 'davidhalter/jedi-vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'terryma/vim-multiple-cursors'
 " dont forget copy snippets from
 " https://github.com/robhudson/snipmate_for_django
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on " обязательно!
+
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#popup_on_dot = 0
+
+let twitvim_enable_python = 1
+let twitvim_count = 100
 
 """ Vimroom
 "let g:vimroom_background = "black"
@@ -91,7 +104,7 @@ let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
 let g:pymode_lint_onfly = 0
 
 " Load rope plugin
-let g:pymode_rope = 1
+let g:pymode_rope = 0
 " Auto create and open ropeproject
 let g:pymode_rope_auto_project = 1
 " Enable autoimport
@@ -226,14 +239,14 @@ nmap <F1> <nop>
 map <F1> <Esc>
 imap <F1> <Esc>
 
-nmap <leader>tn :tabnew <bar> :NERDTreeToggle<cr>i
+nmap <leader>tc :tabnew <bar> :NERDTreeToggle<cr>i
 
 imap <F6> <esc> :tabnext<cr>i
-nmap <leader>n :tabnext<cr>
-nmap <leader>b :tabprevious<cr>
+nmap <leader>tn :tabnext<cr>
+nmap <leader>tb :tabprevious<cr>
 
 "Tab closing
-nmap <leader>q :tabclose<cr>
+nmap <leader>tq :tabclose<cr>
 
 
 "Clear search selection
@@ -274,9 +287,9 @@ vmap <F8> <esc>:MarksBrowser<cr>
 imap <F8> <esc>:MarksBrowser<cr>
 
 " F11 - показать окно Taglist
-map <F10> :TlistToggle<cr>
-vmap <F10> <esc>:TlistToggle<cr>
-imap <F10> <esc>:TlistToggle<cr>
+map <F10> :Tagbar<cr>
+vmap <F10> <esc>:Tagbar<cr>
+imap <F10> <esc>:Tagbar<cr>
 
 " < & > - делаем отступы для блоков
 vmap < <gv
@@ -299,7 +312,6 @@ set wildmenu
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
-
 
 set wcm=<Tab> 
 menu Encoding.koi8-r :e ++enc=koi8-r<CR>
@@ -477,7 +489,7 @@ function! GetVcpromptBranch()
 endfunction
 
 au VimEnter *  NERDTree
-"
+
 """ For ru lang
 set langmap=ёйцукенгшщзхъфывапролджэячсмитьбю;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.,ЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
 
