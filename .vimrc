@@ -67,7 +67,7 @@ Bundle 'mikewest/vimroom'
 Bundle 'vcscommand.vim'
 Bundle 'TwitVim'
 Bundle 'hgrev'
-" pip install powerline
+" pip install --user git+git://github.com/Lokaltog/powerline
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " pip install jedi
 Bundle 'davidhalter/jedi-vim'
