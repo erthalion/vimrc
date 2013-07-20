@@ -73,6 +73,7 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'davidhalter/jedi-vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'erthalion/vim-reddit'
 " dont forget copy snippets from
 " https://github.com/robhudson/snipmate_for_django
 
