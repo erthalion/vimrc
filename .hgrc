@@ -1,0 +1,42 @@
+[ui]
+username = Dolgov Dmitry <9erthalion6@gmail.com>
+editor = vim
+merge = vimdiff
+
+[tortoisehg]
+ui.language = en
+
+[extensions]
+hgflow=/home/erthalion/python/hgflow.py
+prompt = /home/erthalion/hg-extensions/hg-prompt/prompt.py
+mq =
+transplant =
+rebase =
+graphlog =
+fetch =
+notify =
+convert =
+bookmarks =
+record =
+eol =
+purge =
+pager =
+color =
+
+[pager]
+pager = LESS='FRX' less
+attend = annotate, incoming, outgoing, cat, diff, export, glog, log, qdiff
+
+[diff]
+git=true
+
+[auth]
+bb.prefix = https://bitbucket.org
+bb.username = 
+bb.password = 
+
+[hostfingerprints]
+
+[merge-tools]
+vimdiff.executable = vim
+vimdiff.args = -d $base $local $output $other +close +close
