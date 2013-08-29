@@ -1,3 +1,6 @@
+" Erthalion <9erthalion6@gmail.com>
+
+
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
@@ -5,7 +8,7 @@ endif
 
 
 set nocompatible
-filetype off " обязательно!
+filetype off " for vundle
 
 set rtp+=~/.vim/bundle/vundle/
 
@@ -15,87 +18,167 @@ call vundle#rc()
 """"""""""""""""""""""""""""""""""""""""""""""
 
 Bundle 'gmarik/vundle'
+
+"--- VCS -------------------------------------
 Bundle 'tpope/vim-fugitive'
+Bundle 'vcscommand.vim'
+Bundle 'hgrev'
+
+"" Git log viewer
+Bundle 'gregsexton/gitv'
+
+"--- Utils -----------------------------------
 Bundle 'snipMate'
 Bundle 'scrooloose/nerdtree'
-Bundle 'ervandew/eclim'
-Bundle 'wombat256.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-surround'
+
+"" display TODO, FIXME and other
+Bundle 'TaskList.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'LargeFile'
+
+"" Make gist
+Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
+
+Bundle 'erthalion/taskpaper.vim'
+Bundle 'camelcasemotion'
+Bundle 'kien/ctrlp.vim'
+
+"" Additional functional for %
+Bundle 'edsono/vim-matchit'
+
+"" Change word case (camel, underscore, ...)
+Bundle 'tpope/vim-abolish'
+
+"" Reading
+Bundle 'mikewest/vimroom'
+Bundle 'majutsushi/tagbar'
+Bundle 'terryma/vim-multiple-cursors'
+
+"" Light powerline analog
+Bundle 'itchyny/lightline.vim'
+
+"" Autocomplete brackets
+Bundle 'Raimondi/delimitMate'
+
+Bundle 'ervandew/supertab'
+Bundle 'sjl/gundo.vim'
+Bundle 'erthalion/easy-doc.vim'
+
+"--- C/C++ ----------------------------------
+Bundle 'cpp.vim'
+Bundle 'OmniCppComplete'
+
+"" Autocomplete includes
+Bundle 'xaizek/vim-inccomplete'
+
+"--- Python ---------------------------------
+
+"" Auto hightlight
+Bundle 'pyflakes.vim'
+Bundle 'pydoc.vim'
+Bundle 'sontek/rope-vim'
+Bundle 'python.vim'
+Bundle 'klen/python-mode'
+Bundle 'ivanov/vim-ipython'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'lambdalisue/vim-django-support'
+Bundle 'nvie/vim-flake8'
+" dont forget copy snippets from
+" https://github.com/robhudson/snipmate_for_django
+
+"--- Haskell -------------------------------
 Bundle 'ujihisa/neco-ghc'
 Bundle 'haskell/haskell-mode'
 Bundle 'haskell.vim'
 Bundle 'Twinside/vim-hoogle'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'cpp.vim'
-Bundle 'vim-cpp-auto-include'
-Bundle 'mattn/zencoding-vim'
-Bundle 'othree/html5.vim'
-Bundle 'closetag.vim'
+
+"--- Html/Css/Js/Coffee/Haml ---------------
+Bundle 'mattn/emmet-vim'
 Bundle 'Better-CSS-Syntax-for-Vim'
-Bundle 'OmniCppComplete'
-Bundle 'TaskList.vim'
-Bundle 'sjl/gundo.vim'
-Bundle 'pyflakes.vim'
-Bundle 'pydoc.vim'
-Bundle 'sontek/rope-vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'mileszs/ack.vim'
-Bundle 'Git-Branch-Info'
-Bundle 'motemen/git-vim'
-Bundle 'python.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'mjbrownie/pythoncomplete.vim'
-Bundle 'lambdalisue/vim-django-support'
-Bundle 'nvie/vim-flake8'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'LargeFile'
-Bundle 'erthalion/taskpaper.vim'
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'pythoncomplete'
-Bundle 'erthalion/easy-doc.vim'
-Bundle 'klen/python-mode'
-Bundle 'ervandew/supertab'
-Bundle 'kien/ctrlp.vim'
-Bundle 'edsono/vim-matchit'
-Bundle 'ivanov/vim-ipython'
-Bundle 'xaizek/vim-inccomplete'
+Bundle 'tpope/vim-haml'
+Bundle 'othree/html5.vim'
+
+"--- Po ------------------------------------
+Bundle 'vim-scripts/po.vim--Bailey'
+
+"--- Other ---------------------------------
+"Bundle 'ervandew/eclim'
+Bundle 'wombat256.vim'
 Bundle 'gavinheavyside/vim-asciidoc'
-Bundle 'tpope/vim-abolish'
-Bundle 'camelcasemotion'
-Bundle 'mikewest/vimroom'
-Bundle 'vcscommand.vim'
 Bundle 'TwitVim'
-Bundle 'hgrev'
-" pip install --user git+git://github.com/Lokaltog/powerline
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-" pip install jedi
-Bundle 'davidhalter/jedi-vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'terryma/vim-multiple-cursors'
 Bundle 'erthalion/vim-reddit'
-" dont forget copy snippets from
-" https://github.com/robhudson/snipmate_for_django
+Bundle 'Floobits/floobits-vim'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
-filetype plugin indent on " обязательно!
+filetype plugin indent on " for vundle
 
+
+"--- Plugins settings ----------------------------------------------------
+
+"" lightline -------------------------------------------------------------
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'branch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&filetype=="help"?"":&readonly?"ro":""}',
+      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+      \ },
+      \ 'component_function': {
+      \   'branch': 'Branch',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
+function! Branch()
+    if fugitive#head() != ''
+        return fugitive#head()
+    elseif HGRev() != 0
+        return HGRev()
+    else
+        return ''
+    endif
+endfunction
+""--------------------------------------------------------------------------
+
+"" hgrev -------------------------------------------------------------------
+let g:hgrevAutoUpdate = 1
+"" -------------------------------------------------------------------------
+
+"" flake8 ------------------------------------------------------------------
+let g:flake8_max_line_length=100
+"" -------------------------------------------------------------------------
+
+"" jedi-vim ----------------------------------------------------------------
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#popup_on_dot = 0
+"" -------------------------------------------------------------------------
 
+"" TwitVim -----------------------------------------------------------------
 let twitvim_enable_python = 1
 let twitvim_count = 100
+"" -------------------------------------------------------------------------
 
-""" Vimroom
-"let g:vimroom_background = "black"
+"" Vimroom -----------------------------------------------------------------
 let g:vimroom_min_sidebar_width = 5
 let g:vimroom_sidebar_height = 5
 let g:vimroom_width = 100
+"" -------------------------------------------------------------------------
 
+"" LargeFile ---------------------------------------------------------------
 " Maximum size of file in megabytes (for enable largefile plugin)
 let g:LargeFile=10
+"" -------------------------------------------------------------------------
 
+"" PyMode ------------------------------------------------------------------
 let g:pymode_breakpoint_key = "<leader>br"
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
@@ -103,7 +186,6 @@ let g:pymode_lint_write = 0
 let g:pymode_lint = 1
 let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
 let g:pymode_lint_onfly = 0
-
 " Load rope plugin
 let g:pymode_rope = 0
 " Auto create and open ropeproject
@@ -130,45 +212,57 @@ let g:pymode_folding = 1
 let g:pymode_motion = 1
 " Auto fix vim python paths if virtualenv enabled
 let g:pymode_virtualenv = 1
-
 "Enable pymode's custom syntax highlighting
 let g:pymode_syntax = 1
-
 " Enable all python highlightings
 let g:pymode_syntax_all = 1
-
 " Highlight "print" as function
 let g:pymode_syntax_print_as_function = 0
-
 " Highlight indentation errors
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-
 " Highlight trailing spaces
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
-
 " Highlight string formatting
 let g:pymode_syntax_string_formatting = g:pymode_syntax_all
-
 " Highlight str.format syntax
 let g:pymode_syntax_string_format = g:pymode_syntax_all
-
 " Highlight string.Template syntax
 let g:pymode_syntax_string_templates = g:pymode_syntax_all
-
 " Highlight doc-tests
 let g:pymode_syntax_doctests = g:pymode_syntax_all
-
 " Highlight builtin objects (__doc__, self, etc)
 let g:pymode_syntax_builtin_objs = g:pymode_syntax_all
-
 " Highlight builtin functions
 let g:pymode_syntax_builtin_funcs = g:pymode_syntax_all
-
 " Highlight exceptions
 let g:pymode_syntax_highlight_exceptions = g:pymode_syntax_all
-
 " For fast machines
 let g:pymode_syntax_slow_sync = 0
+"" -------------------------------------------------------------------------
+
+
+"" pyflakes ----------------------------------------------------------------
+let g:pyflakes_use_quickfix = 0
+"" -------------------------------------------------------------------------
+
+"" NERDTree ----------------------------------------------------------------
+let NERDTreeIgnore = ['\.pyc$','\.orig$','\.rej$']
+"" -------------------------------------------------------------------------
+
+"" Taglist ----------------------------------------------------------------
+" Настройки для Tlist (показвать только текущий файл в окне навигации по  коду)
+let g:Tlist_Show_One_File = 1
+"" -------------------------------------------------------------------------
+
+
+"" Floobits ----------------------------------------------------------------
+" Настройки для SessionMgr
+let g:SessionMgr_AutoManage = 0
+let g:SessionMgr_DefaultName = "mysession"
+"" -------------------------------------------------------------------------
+
+
+"--- Vim settings ----------------------------------------------------------
 
 set autoread
 
@@ -217,7 +311,6 @@ syntax on
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 set expandtab
 
-set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P\ Git:\ %{GitBranch()}\ %{HasPaste()}
 set laststatus=2
 set smartindent
 set smarttab
@@ -227,28 +320,92 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-let g:pyflakes_use_quickfix = 0
-"for nerd tree
-let NERDTreeIgnore = ['\.pyc$','\.orig$','\.rej$']
+" Меню выбора кодировки текста (koi8-r, cp1251, cp866, utf8)
+"set wildmode=longest,list,full
+set wildmenu
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+
+set wcm=<Tab> 
+menu Encoding.koi8-r :e ++enc=koi8-r<CR>
+menu Encoding.windows-1251 :e ++enc=cp1251<CR>
+menu Encoding.cp866 :e ++enc=cp866<CR>
+menu Encoding.utf-8 :e ++enc=utf8 <CR>
+
+" Слова откуда будем завершать
+set complete=""
+" Из текущего буфера
+set complete+=.
+" Из словаря
+set complete+=k
+" Из других открытых буферов
+set complete+=b
+" из тегов 
+set complete+=t
+
+set nocp
+
+set completeopt-=preview
+set completeopt+=longest
+set mps-=[:]
+
+"" For ru lang
+set langmap=ёйцукенгшщзхъфывапролджэячсмитьбю;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.,ЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
+
+"all themes are in /usr/share/vim/vim73/colors
+if exists('$DISPLAY')
+"if $DISPLAY == ""
+    set t_Co=256
+    :colorscheme wombat256mod
+else
+    :colorscheme evening
+endif
+
+let python_highlight_all = 1
+""----------------------------------------------------------------------------------
 
 
-"-------------------------vim
-"vim Горячие клавишы
-"
-"unmap F1 & F3
+"--- Events ------------------------------------------------------------------------
+au BufRead,BufNewFile *.adoc    set syntax=asciidoc
+autocmd FileType python set ft=python.django " For SnipMate
+autocmd FileType html set ft=htmldjango.html " For SnipMate
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+"Перед сохранением вырезаем пробелы на концах (только в .py файлах)
+autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+
+"В .py файлах включаем умные отступы после ключевых слов
+autocmd BufRead *.py set smartindent"cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4A1
+autocmd BufNewFile,BufRead *.cs set formatprg=astyle\ -T4A1
+autocmd BufNewFile,BufRead *.java set formatprg=astyle\ -T4A1
+"------------------------------------------------------------------------------------
+
+
+"--- Keybind
+
+"" Unmap F1
 nmap <F1> <nop>
 map <F1> <Esc>
 imap <F1> <Esc>
 
-nmap <leader>tc :tabnew <bar> :NERDTreeToggle<cr>i
-
+"" Tabs
+nmap <leader>tc :tabnew<cr>i
 imap <F6> <esc> :tabnext<cr>i
 nmap <leader>tn :tabnext<cr>
 nmap <leader>tb :tabprevious<cr>
-
-"Tab closing
 nmap <leader>tq :tabclose<cr>
 
+" F3 - NERDTree toggle
+map <F3> :NERDTreeToggle<cr>
+vmap <F3> <esc>:NERDTreeToggle<cr>
+imap <F3> <esc>:NERDTreeToggle<cr>
 
 "Clear search selection
 nmap <leader>cls :noh<cr>
@@ -267,13 +424,6 @@ imap <C-V> <esc>"+gPi
 
 " Заставляем shift-insert работать как в Xterm
 map <S-Insert> <MiddleMouse>
-
-" C-y - удаление текущей строки
-nmap <C-y> dd
-imap <C-y> <esc>ddi
-
-" C-d - дублирование текущей строки
-imap <C-d> <esc>yypi
 
 " Поиск и замена слова под курсором
 nmap ; :%s/\<<c-r>=expand("<cword>")<cr>\>/
@@ -304,96 +454,18 @@ map <leader>def :RopeGotoDefinition<cr>
 vmap <leader>def :RopeGotoDefinition<cr>
 imap <leader>def :RopeGotoDefinition<cr>
 
-
-set pastetoggle=<F3>
-
-" Меню выбора кодировки текста (koi8-r, cp1251, cp866, utf8)
-"set wildmode=longest,list,full
-set wildmenu
-
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-
-set wcm=<Tab> 
-menu Encoding.koi8-r :e ++enc=koi8-r<CR>
-menu Encoding.windows-1251 :e ++enc=cp1251<CR>
-menu Encoding.cp866 :e ++enc=cp866<CR>
-menu Encoding.utf-8 :e ++enc=utf8 <CR>
-
 " Редко когда надо [ без пары =)
 imap [ []<LEFT>
 " Аналогично и для {
 imap {<CR> {<CR>}<Esc>O
+""-----------------------------------------------------------------------------
 
-" С-q - выход из Vim 
-"map <C-Q> <Esc>:qa<cr>
-
-filetype on
-" Слова откуда будем завершать
-set complete=""
-" Из текущего буфера
-set complete+=.
-" Из словаря
-set complete+=k
-" Из других открытых буферов
-set complete+=b
-" из тегов 
-set complete+=t
-
-set nocp
-au BufRead,BufNewFile *.phps    set filetype=php
-au BufRead,BufNewFile *.thtml    set filetype=php
-au BufRead,BufNewFile *.adoc    set syntax=asciidoc
-
-" Настройки для SessionMgr
-let g:SessionMgr_AutoManage = 0
-let g:SessionMgr_DefaultName = "mysession"
-
-" Настройки для Tlist (показвать только текущий файл в окне навигации по  коду)
-let g:Tlist_Show_One_File = 1
-
-set completeopt-=preview
-set completeopt+=longest
-set mps-=[:]
-
-"Подсвечиваем все что можно подсвечивать
-
-let python_highlight_all = 1
-
-autocmd FileType python set ft=python.django " For SnipMate
-autocmd FileType html set ft=htmldjango.html " For SnipMate
-
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"autocmd FileType cs set omnifunc=cscomplete#CompleteCS
-"autocmd FileType cs set omnifunc=syntaxcomplete#Complete
-
-"Перед сохранением вырезаем пробелы на концах (только в .py файлах)
-autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
-
-"В .py файлах включаем умные отступы после ключевых слов
-autocmd BufRead *.py set smartindent"cinwords=if,elif,else,for,while,try,except,finally,def,class
-
-"all themes are in /usr/share/vim/vim73/colors
-if exists('$DISPLAY')
-"if $DISPLAY == ""
-    set t_Co=256
-    :colorscheme wombat256mod
-else
-    :colorscheme evening
-endif
-
-autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4A1
-autocmd BufNewFile,BufRead *.cs set formatprg=astyle\ -T4A1
-autocmd BufNewFile,BufRead *.java set formatprg=astyle\ -T4A1
-
+"--- Functions ----------------------------------------------------------------
 "cmake
 let g:cmake_build_type = 'Debug'
 
 function! SetCppStatusLine()
-    set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P\ Git:\ %{GitBranch()}\ BuildType:\ %{g:cmake_build_type}
+    set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P\ Branch\ %{g:branch}\ BuildType:\ %{g:cmake_build_type}
 endfunction
 au FileType c,cc,cpp,h,hpp,s call SetCppStatusLine()
 
@@ -450,29 +522,11 @@ function! BindTag_C()
 endfunction
 au FileType c,cc,cpp,h,hpp,s call BindTag_C()
 
-
-command Pyflakes :call Pyflakes()
-function! Pyflakes()
-    let tmpfile = tempname()
-    execute "w" tmpfile
-    execute "set makeprg=(pyflakes\\ " . tmpfile .
-            "\\\\\\|sed\\ s@" . tmpfile ."@%@)"
-    silent make
-    cw
-endfunction
-
-function! BindF5_Python()
-	map <F5> :w\|call Pyflakes()\|!python %<cr>
-	imap <F5> <Esc><F5>
-endfunction
-au FileType python call BindF5_Python()
-
 function! BindTag_Python()
 	" build tags of your own project with Ctrl-F12
 	map <C-F12> :!ctags -R --python-kinds=-i<CR>
 endfunction
 au FileType python call BindTag_Python()
-
 
 """ For Vimroom
 function! Read()
@@ -481,18 +535,6 @@ function! Read()
     execute ":set nonumber"
     execute ":VimroomToggle"
 endfunction
-
-
-""" For vcprompt
-function! GetVcpromptBranch()
-    let result = system('vcprompt')
-    return result
-endfunction
-
-au VimEnter *  NERDTree
-
-""" For ru lang
-set langmap=ёйцукенгшщзхъфывапролджэячсмитьбю;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.,ЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
 
 map <F4>  :call TRANSLATE()<cr>
 function TRANSLATE()
@@ -510,7 +552,6 @@ function TRANSLATE()
 endfunction
 
 " Запуск проверки правописания
-
 setlocal spell spelllang=
 setlocal nospell
 function ChangeSpellLang()
@@ -532,10 +573,3 @@ map <leader>spl <Esc>:call ChangeSpellLang()<CR>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
-
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    en
-    return ''
-endfunction
