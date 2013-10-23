@@ -101,6 +101,7 @@ Bundle 'Better-CSS-Syntax-for-Vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-haml'
 Bundle 'othree/html5.vim'
+Bundle 'nono/vim-handlebars'
 
 "--- Po ------------------------------------
 Bundle 'vim-scripts/po.vim--Bailey'
@@ -284,6 +285,9 @@ set ruler
 set nu
 set foldmethod=indent
 set incsearch
+set ignorecase " Make searches case-sensitive...
+set smartcase  " ...unless they contain at least one uppercase character
+set gdefault   " Use global search by default
 "set nohlsearch
 set scrolljump=7
 set scrolloff=7
@@ -350,8 +354,65 @@ set completeopt-=preview
 set completeopt+=longest
 set mps-=[:]
 
+" Set comma as <leader> instead of default backslash
+let mapleader=","
+
+" Prevent Vim from clearing the scrollback buffer
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
+
+" Use the OS clipboard by default
+set clipboard=unnamed
+
+" Copy to X11 primary clipboard
+map <leader>y "*y
+
+" Paste from unnamed register and fix indentation
+nmap <leader>p pV`]=
+
+" Optimize for fast terminal connections
+set ttyfast
+
+" Time out on key codes but not mappings
+set notimeout
+set ttimeout
+set ttimeoutlen=100
+
+" Update syntax highlighting for more lines increased scrolling performance
+syntax sync minlines=256
+
+" Don't syntax highlight long lines
+set synmaxcol=256
+
+" make hjkl movements accessible from insert mode via the <Alt> modifier key
+inoremap <C-h> <C-o>h
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+inoremap <C-l> <C-o>l
+inoremap <C-w> <C-o>w
+inoremap <C-b> <C-o>b
+
+" Disable arrow keys in normal mode and insert mode
+noremap <left> <nop>
+noremap <right> <nop>
+noremap <up> <nop>
+noremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+
 "" For ru lang
 set langmap=ёйцукенгшщзхъфывапролджэячсмитьбю;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.,ЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
+
+" Set <c-n> and <c-p> to act like Up/Down so will filter command history
+" Practical Vim p.69
+cnoremap <c-p> <up>
+cnoremap <c-n> <down>
+
+" Expand %% to current directory
+" http://vimcasts.org/e/14
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 "all themes are in /usr/share/vim/vim73/colors
 if exists('$DISPLAY')
