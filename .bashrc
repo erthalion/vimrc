@@ -44,3 +44,13 @@ source ~/.hg_completion.bash
 
 export EC2_PRIVATE_KEY=/home/erthalion/.sss/erthalion.pem
 export EC2_CERT=/home/erthalion/.sss/erthalion.pem
+
+#Чтобы одинаковые команды не сохранялись в истории, добавьте строчку:
+HISTCONTROL=ignoredups
+#Не добавлять запись в историю команд, если команда начинается с пробела:
+HISTCONTROL=ignorespace
+#стираются все повторения, в том числе идущие не подряд, но в разной последовательности. (например, после cd..ls..cd..ls останется cd и ls)
+HISTCONTROL=erasedups
+# Чтобы история команд сохранялась сразу после ввода (а не во время закрытия терминала)
+shopt -s histappend
+PROMPT_COMMAND='history -a'
