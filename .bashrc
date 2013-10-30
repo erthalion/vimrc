@@ -39,9 +39,6 @@ alias hist='git hist'
 alias gout='git fetch && git log origin/master..'
 alias gin='git fetch && git log ..origin/master'
 
-source ~/.git_completion.bash
-source ~/.hg_completion.bash
-
 export EC2_PRIVATE_KEY=/home/erthalion/.sss/erthalion.pem
 export EC2_CERT=/home/erthalion/.sss/erthalion.pem
 
@@ -54,3 +51,14 @@ HISTCONTROL=erasedups
 # Чтобы история команд сохранялась сразу после ввода (а не во время закрытия терминала)
 shopt -s histappend
 PROMPT_COMMAND='history -a'
+
+if [ -f /etc/bash_completion ]; then
+. /etc/bash_completion
+fi
+
+source ~/programms/django/extras/django_bash_completion
+source ~/.git_completion.bash
+source ~/.hg_completion.bash
+
+#for change directory without cs
+shopt -s autocd
