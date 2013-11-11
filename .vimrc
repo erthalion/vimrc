@@ -82,7 +82,10 @@ Bundle 'pydoc.vim'
 Bundle 'sontek/rope-vim'
 Bundle 'python.vim'
 Bundle 'klen/python-mode'
-Bundle 'ivanov/vim-ipython'
+
+" Temporary disabled, because this plugin has strange behaviour
+" and map <F5>, which break cpp build
+"Bundle 'ivanov/vim-ipython'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'lambdalisue/vim-django-support'
 Bundle 'nvie/vim-flake8'
@@ -287,7 +290,7 @@ set foldmethod=indent
 set incsearch
 set ignorecase " Make searches case-sensitive...
 set smartcase  " ...unless they contain at least one uppercase character
-set gdefault   " Use global search by default
+"set gdefault   " Use global search by default
 "set nohlsearch
 set scrolljump=7
 set scrolloff=7

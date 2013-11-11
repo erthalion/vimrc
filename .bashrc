@@ -60,5 +60,15 @@ source ~/programms/django/extras/django_bash_completion
 source ~/.git_completion.bash
 source ~/.hg_completion.bash
 
+source /etc/profile.d/autojump.bash
+
 #for change directory without cs
 shopt -s autocd
+
+export AUTOJUMP_IGNORE_CASE=1
+export AUTOJUMP_AUTOCOMPLETE_CMDS='cp vim'
+
+function newdir {
+    mkdir -p "$*";
+    cd "$*";
+}
