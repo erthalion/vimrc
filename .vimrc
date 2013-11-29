@@ -86,7 +86,8 @@ Bundle 'klen/python-mode'
 " Temporary disabled, because this plugin has strange behaviour
 " and map <F5>, which break cpp build
 "Bundle 'ivanov/vim-ipython'
-Bundle 'davidhalter/jedi-vim'
+
+"Bundle 'davidhalter/jedi-vim'
 Bundle 'lambdalisue/vim-django-support'
 Bundle 'nvie/vim-flake8'
 " dont forget copy snippets from
@@ -116,6 +117,11 @@ Bundle 'gavinheavyside/vim-asciidoc'
 Bundle 'TwitVim'
 Bundle 'erthalion/vim-reddit'
 Bundle 'Floobits/floobits-vim'
+"Bundle 'vim-soundcloud'
+Bundle 'scrooloose/syntastic'
+
+"" Timetracking
+Bundle 'wakatime/vim-wakatime'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -287,6 +293,7 @@ set nocompatible
 set ruler
 set nu
 set foldmethod=indent
+set foldlevelstart=40
 set incsearch
 set ignorecase " Make searches case-sensitive...
 set smartcase  " ...unless they contain at least one uppercase character
