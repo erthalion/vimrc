@@ -68,13 +68,13 @@ Screenshots
 ===========
 CPP source code
 ---------------
-<a href="http://tinypic.com?ref=29krjiv" target="_blank"><img src="http://i40.tinypic.com/29krjiv.png" border="0" alt="Image and video hosting by TinyPic"></a>
+<img src="http://i40.tinypic.com/29krjiv.png" border="0" alt="Image and video hosting by TinyPic">
 Python source code
 ------------------
-<a href="http://tinypic.com?ref=16l8p1" target="_blank"><img src="http://i40.tinypic.com/16l8p1.png" border="0" alt="Image and video hosting by TinyPic"></a>
+<img src="http://i40.tinypic.com/16l8p1.png" border="0" alt="Image and video hosting by TinyPic">
 Plain text with Vimroom
 -----------------------
-<a href="http://tinypic.com?ref=2ypar6f" target="_blank"><img src="http://i39.tinypic.com/2ypar6f.png" border="0" alt="Image and video hosting by TinyPic"></a>
+<img src="http://i39.tinypic.com/2ypar6f.png" border="0" alt="Image and video hosting by TinyPic">
 DE
 --
-<a href="http://tinypic.com?ref=nfp62t" target="_blank"><img src="http://i39.tinypic.com/nfp62t.png" border="0" alt="Image and video hosting by TinyPic"></a>
+<img src="http://i39.tinypic.com/nfp62t.png" border="0" alt="Image and video hosting by TinyPic">
