@@ -17,8 +17,8 @@ def normalize(typ, data):
 port = 993
 server = 'imap.gmail.com'
 
-username = '9erthalion6@gmail.com'
-passwd = '33333/////l//f[frcnj,jq'
+username = 'user@mail.com'
+passwd = 'password'
 
 imap_server = imaplib.IMAP4_SSL(server, port)
 try:
