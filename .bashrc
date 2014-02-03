@@ -38,6 +38,8 @@ alias last='git last'
 alias hist='git hist'
 alias gout='git fetch && git log origin/master..'
 alias gin='git fetch && git log ..origin/master'
+alias goutshow='git fetch && git show origin/master..'
+alias ginshow='git fetch && git show ..origin/master'
 
 export EC2_PRIVATE_KEY=/home/erthalion/.sss/erthalion.pem
 export EC2_CERT=/home/erthalion/.sss/erthalion.pem
@@ -72,3 +74,8 @@ function newdir {
     mkdir -p "$*";
     cd "$*";
 }
+
+export CHROMIUM_FLAGS='--disk-cache-size=1 --media-cache-size=1'
+export PYTHONDONTWRITEBYTECODE=true
+
+alias s='source .env/bin/activate'
