@@ -10,6 +10,7 @@ import Data.Ratio ((%))
 import XMonad.Hooks.FloatNext
 import XMonad.Hooks.ManageHelpers
 import qualified XMonad.StackSet as W
+import qualified Data.Map as M
 
 
 spawnToWorkspace :: String -> String -> X ()
@@ -42,8 +43,6 @@ myXxkbBar = "xxkb"
 
 myXcompmgr = "xcompmgr -c"
 
-myJupiter = "jupiter"
-
 myHdParm = "/bin/bash /home/erthalion/bash/hdparm.sh"
 
 myManageHook = composeAll [
@@ -61,15 +60,26 @@ myLayout = onWorkspace "5:im" imLayout $ onWorkspace "3:web" Full $ tiled ||| Mi
     gridLayout = Grid
     imLayout = withIM (18/100) (Role "buddy_list") gridLayout
 
+myMouseBinding (XConfig {XMonad.modMask = modMask}) = M.fromList
+    [ ((modMask .|. shiftMask, button1), \w -> focus w >> mouseMoveWindow w
+                                          >> windows W.shiftMaster)
+
+    , ((modMask .|. shiftMask, button2), windows . (W.shiftMaster .) . W.focusWindow)
+
+    , ((modMask .|. shiftMask, button3), \w -> focus w >> mouseResizeWindow w
+                                         >> windows W.shiftMaster)
+    ]
+
 defaults = defaultConfig {
     terminal = myTesminal,
     modMask = myModMask,
     borderWidth = myBorderWidth,
     workspaces = myWorkspaces,
     startupHook= myStartupHook,
-    manageHook= floatNextHook <+> myManageHook,
+    manageHook = floatNextHook <+> myManageHook,
     layoutHook = myLayout,
-    logHook = myLogHook
+    logHook = myLogHook,
+    mouseBindings = myMouseBinding
     } `additionalKeys`
     [((mod4Mask, xK_g), spawn "chromium-browser"),
     ((mod4Mask, xK_e), spawn "exec ck-launch-session dbus-launch pcmanfm"),
@@ -88,5 +98,4 @@ main = do
     spawn myTrayer
     spawn myXxkbBar
     spawn myXcompmgr
-    spawn myJupiter
     xmonad =<< xmobar defaults
