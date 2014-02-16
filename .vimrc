@@ -271,6 +271,16 @@ let g:SessionMgr_AutoManage = 0
 let g:SessionMgr_DefaultName = "mysession"
 "" -------------------------------------------------------------------------
 
+"" Syntastic settings
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = { 'mode': 'passive' }
+
+
+"" The silver searcher instead ack"
+"" It must be installed: emerge -av the_silver_searcher"
+"" Ag doesn't support file types"
+"let g:ackprg = 'ag --nogroup --nocolor --column'
 
 "--- Vim settings ----------------------------------------------------------
 
@@ -644,3 +654,12 @@ map <leader>spl <Esc>:call ChangeSpellLang()<CR>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
+
+" Search word under cursor "
+nnoremap <leader>s :Ack <CR>:cw<CR>
+
+" for ii
+map <leader>ii :.w >> ~/irc/irc.freenode.net/in<cr>dd
+map <leader>iv :.w >> ~/irc/irc.freenode.net/\#vim/in<cr>dd
+map <leader>ih :.w >> ~/irc/irc.freenode.net/\#haskell/in<cr>dd
+map <leader>ig :.w >> ~/irc/irc.freenode.net/\#gentoo/in<cr>dd
