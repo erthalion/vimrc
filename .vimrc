@@ -82,6 +82,7 @@ Bundle 'pydoc.vim'
 Bundle 'sontek/rope-vim'
 Bundle 'python.vim'
 Bundle 'klen/python-mode'
+Bundle 'hynek/vim-python-pep8-indent'
 
 " Temporary disabled, because this plugin has strange behaviour
 " and map <F5>, which break cpp build
