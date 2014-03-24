@@ -108,6 +108,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-haml'
 Bundle 'othree/html5.vim'
 Bundle 'nono/vim-handlebars'
+Bundle 'groenewege/vim-less'
 
 "--- Po ------------------------------------
 Bundle 'vim-scripts/po.vim--Bailey'
