@@ -48,7 +48,8 @@ myHdParm = "/bin/bash /home/erthalion/bash/hdparm.sh"
 myManageHook = composeAll [
     resource =? "XXkb" --> doIgnore,
     resource =? "gnome-terminal" --> doFloatAt 0.0 0.71,
-    className =? "Pidgin" --> doShift "5:im"
+    className =? "Pidgin" --> doShift "5:im",
+    className =? "Chromium-browser" --> doShift "3:web"
     ]
 
 myLayout = onWorkspace "5:im" imLayout $ onWorkspace "3:web" Full $ tiled ||| Mirror tiled ||| Full
