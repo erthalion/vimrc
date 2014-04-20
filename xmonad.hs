@@ -45,6 +45,8 @@ myXcompmgr = "xcompmgr -c"
 
 myHdParm = "/bin/bash /home/erthalion/bash/hdparm.sh"
 
+myXFlux="xflux -l 55.1959 -g 86.0449"
+
 myManageHook = composeAll [
     resource =? "XXkb" --> doIgnore,
     resource =? "gnome-terminal" --> doFloatAt 0.0 0.71,
@@ -99,4 +101,5 @@ main = do
     spawn myTrayer
     spawn myXxkbBar
     spawn myXcompmgr
+    spawn myXFlux
     xmonad =<< xmobar defaults
