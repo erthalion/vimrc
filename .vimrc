@@ -283,8 +283,7 @@ let g:syntastic_mode_map = { 'mode': 'passive' }
 
 "" The silver searcher instead ack"
 "" It must be installed: emerge -av the_silver_searcher"
-"" Ag doesn't support file types"
-"let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 "--- Vim settings ----------------------------------------------------------
 
