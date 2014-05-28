@@ -407,6 +407,10 @@ syntax sync minlines=256
 " Don't syntax highlight long lines
 set synmaxcol=256
 
+"" Blowfish for encryption
+setlocal cm=zip
+setlocal cm=blowfish
+
 " make hjkl movements accessible from insert mode via the <Alt> modifier key
 inoremap <C-h> <C-o>h
 inoremap <C-j> <C-o>j
