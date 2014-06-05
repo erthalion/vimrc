@@ -163,6 +163,10 @@ function! Branch()
 endfunction
 ""--------------------------------------------------------------------------
 
+"" youcompleteme"
+"" autoclose preview
+let g:ycm_autoclose_preview_window_after_completion=1
+
 "" hgrev -------------------------------------------------------------------
 let g:hgrevAutoUpdate = 1
 "" -------------------------------------------------------------------------
@@ -284,6 +288,10 @@ let g:syntastic_mode_map = { 'mode': 'passive' }
 "" The silver searcher instead ack"
 "" It must be installed: emerge -av the_silver_searcher"
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+"" YouCompleteMe
+"" set global conf file
+let g:ycm_global_ycm_extra_conf = '/home/erthalion/.ycm_extra_conf.py'
 
 "--- Vim settings ----------------------------------------------------------
 
