@@ -109,6 +109,7 @@ Bundle 'tpope/vim-haml'
 Bundle 'othree/html5.vim'
 Bundle 'nono/vim-handlebars'
 Bundle 'groenewege/vim-less'
+Bundle 'gregsexton/MatchTag'
 
 "--- Po ------------------------------------
 Bundle 'vim-scripts/po.vim--Bailey'
