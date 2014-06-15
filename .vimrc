@@ -492,6 +492,11 @@ nmap <F1> <nop>
 map <F1> <Esc>
 imap <F1> <Esc>
 
+"" Unmap F1 F2
+nmap <F2><F1> <nop>
+map <F2><F1> <Esc>
+imap <F2><F1> <Esc>
+
 "" Tabs
 nmap <leader>tc :tabnew<cr>i
 imap <F6> <esc> :tabnext<cr>i
