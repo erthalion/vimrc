@@ -1,0 +1,26 @@
+[user]
+	name = erthalion
+	email = 9erthalion6@gmail.com
+[core]
+	editor = vim
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[github]
+	user = erthalion
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    ;hist = log --pretty=format:\"%Cblue%h%Creset %Cgreen%ad%Creset | %s%C(yellow)%d%Creset [%Cred%an%Creset]\" --graph --date=short
+    hist = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- [%C(magenta)%an%Creset]%C(bold yellow)%d%C(reset)' --all
+    type = cat-file -t
+    dump = cat-file -p
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    lastdiff = log --stat --no-merges --max-count=1 -p
+[push]
+	default = simple
