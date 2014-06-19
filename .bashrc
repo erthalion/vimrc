@@ -62,6 +62,8 @@ source ~/programms/django/extras/django_bash_completion
 source ~/.git_completion.bash
 source ~/.hg_completion.bash
 
+# if there is no autojump.bash - copy from repo 
+# https://raw.githubusercontent.com/joelthelion/autojump/master/bin/autojump.bash
 source /etc/profile.d/autojump.bash
 
 #for change directory without cs
