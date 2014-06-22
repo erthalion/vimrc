@@ -77,19 +77,22 @@ ${offset 1045}${voffset -45}${color ffffff}${font Santana:size=14:style=Bold}${e
 
 
 ${offset 130}${voffset 260}${font Santana:size=9:style=Bold}home : ${font Santana:size=9}${fs_used /home}/${fs_size /home}
-${offset 130}${voffset 10}${font Santana:size=9:style=Bold}win: ${font Santana:size=9}${fs_used /media/win}/${fs_size /media/win}$font
+${offset 130}${voffset 10}${font Santana:size=9:style=Bold}win: ${font Santana:size=9}$font
 ${offset 120}${voffset 12}${color ffffff}${font Santana:size=9:style=Bold}swap: ${font Santana:size=8} ${swap} / ${swapfree}$font
 ${offset 570}${voffset -110} ${color EAEAEA}Linux ${kernel} kernel
 ${offset 570}${voffset 5} Uptime :${uptime}
-${offset 825}${voffset -80}${color ffffff}${font Santana:size=10:style=Bold}${exec whoami}@${nodename}
-${offset 825}${voffset 0}${color ffffff}${font Santana:size=8}${top name 1} ${goto 930} ${top cpu 1}% ${offset 10} ${top_mem name 1} ${goto 1080} ${top_mem mem 1}%
-${offset 825}${voffset 0}${color ffffff}${font Santana:size=8}${top name 2} ${goto 930} ${top cpu 2}% ${offset 10} ${top_mem name 2} ${goto 1080} ${top_mem mem 2}%
-${offset 825}${voffset 0}${color ffffff}${font Santana:size=8}${top name 3} ${goto 930} ${top cpu 3}% ${offset 10} ${top_mem name 3} ${goto 1080} ${top_mem mem 3}%
-${offset 825}${voffset 0}${color ffffff}${font Santana:size=8}${top name 4} ${goto 930} ${top cpu 4}% ${offset 10} ${top_mem name 4} ${goto 1080} ${top_mem mem 4}%
+${offset 570}${voffset 5} Ambient :${acpitemp}°C
+${offset 570}${voffset 5} Core : ${hwmon temp 1}°C
+${offset 570}${voffset 5} Battery : ${battery}
+${offset 830}${voffset -135}${color ffffff}${font Santana:size=10:style=Bold}${exec whoami}@${nodename}
+${offset 830}${voffset 0}${color ffffff}${font Santana:size=8}${top name 1} ${goto 930} ${top cpu 1}% ${offset 10} ${top_mem name 1} ${goto 1080} ${top_mem mem 1}%
+${offset 830}${voffset 0}${color ffffff}${font Santana:size=8}${top name 2} ${goto 930} ${top cpu 2}% ${offset 10} ${top_mem name 2} ${goto 1080} ${top_mem mem 2}%
+${offset 830}${voffset 0}${color ffffff}${font Santana:size=8}${top name 3} ${goto 930} ${top cpu 3}% ${offset 10} ${top_mem name 3} ${goto 1080} ${top_mem mem 3}%
+${offset 830}${voffset 0}${color ffffff}${font Santana:size=8}${top name 4} ${goto 930} ${top cpu 4}% ${offset 10} ${top_mem name 4} ${goto 1080} ${top_mem mem 4}%
 
-${offset 705}${voffset 115}${color ffffff}${font Santana:size=10:style=Bold}IP Address :${addr wlan0}
-${offset 705}${voffset 10}${color ffffff}${font Santana:size=8}SSID :${wireless_essid wlan0}
-${offset 705}${voffset 10}${color ffffff}${font Santana:size=8}Down :${downspeed wlan0} k/s ${offset 8}Up:${upspeed wlan0} k/s
-${offset 705}${voffset 10}${color ffffff}${font Santana:size=8}TCP Connections: ${tcp_portmon 1 65535 count}
+${offset 710}${voffset 100}${color ffffff}${font Santana:size=10:style=Bold}IP Address :${addr wlan0}
+${offset 710}${voffset 10}${color ffffff}${font Santana:size=8}SSID :${wireless_essid wlan0}
+${offset 710}${voffset 10}${color ffffff}${font Santana:size=8}Down :${downspeed wlan0} k/s ${offset 8}Up:${upspeed wlan0} k/s
+${offset 710}${voffset 10}${color ffffff}${font Santana:size=8}TCP Connections: ${tcp_portmon 1 65535 count}
 ${image ~/.conky/gmail.png -p 1150,70}
 
