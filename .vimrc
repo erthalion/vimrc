@@ -32,6 +32,8 @@ Bundle 'snipMate'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
+Bundle 'eiginn/netrw'
+Bundle 'Chiel92/vim-autoformat'
 
 "" display TODO, FIXME and other
 Bundle 'TaskList.vim'
@@ -79,7 +81,6 @@ Bundle 'xaizek/vim-inccomplete'
 "" Auto hightlight
 Bundle 'pyflakes.vim'
 Bundle 'pydoc.vim'
-Bundle 'sontek/rope-vim'
 Bundle 'python.vim'
 Bundle 'klen/python-mode'
 Bundle 'hynek/vim-python-pep8-indent'
