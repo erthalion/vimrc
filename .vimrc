@@ -34,6 +34,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'eiginn/netrw'
 Bundle 'Chiel92/vim-autoformat'
+Bundle 'junegunn/limelight.vim'
 
 "" display TODO, FIXME and other
 Bundle 'TaskList.vim'
