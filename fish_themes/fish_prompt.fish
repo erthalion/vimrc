@@ -1,7 +1,6 @@
 function fish_prompt
-  echo
   set -g RETVAL $status
-
+  printf "\n"
   printf '┌('
 
   set_color green
