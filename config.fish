@@ -15,7 +15,7 @@ set -x GREP_COLOR '1;33'
 set -x GOARCH amd64
 set -x GOOS linux
 #set -x GOBIN /usr/bin/go
-set PATH /home/erthalion/bash /home/erthalion/.cabal/bin /home/erthalion/.gem/ruby/1.9.1/bin /home/erthalion/bin /home/erthalion/.local/bin /usr/local/bin $PATH
+set PATH /home/erthalion/bash /home/erthalion/.cabal/bin /home/erthalion/bin /home/erthalion/.local/bin /usr/local/bin /opt/bin $PATH
 
 set -x AUTOJUMP_IGNORE_CASE 1
 set -x AUTOJUMP_AUTOCOMPLETE_CMDS 'cp vim'
