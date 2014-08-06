@@ -1,8 +1,10 @@
 function fish_prompt
   set -g RETVAL $status
+  set_color --bold white
   printf "\n"
   printf '┌('
 
+  set_color normal
   set_color green
   printf '%s' (whoami)
   set_color normal
@@ -10,7 +12,7 @@ function fish_prompt
   set_color magenta
   printf '@'
   printf '%s' (hostname|cut -d . -f 1)
-  set_color normal
+  set_color --bold white
   printf ')'
 
   printf '─('
@@ -19,15 +21,16 @@ function fish_prompt
     printf "✘"
   else
     set_color green
-    printf "✓"
+    printf "✔"
   end
-  set_color normal
+  set_color --bold white
   printf ")"
 
   printf '─('
+  set_color normal
   set_color 77ECF2
   printf (date "+%H:%M %a %b %d")
-  set_color normal
+  set_color --bold white
   printf ")"
 
   # Line 2
@@ -35,7 +38,7 @@ function fish_prompt
   printf "└─("
   set_color --bold 74FF52
   printf (prompt_pwd)
-  set_color normal
+  set_color --bold white
   printf ")"
 
   printf '─('
@@ -46,7 +49,7 @@ function fish_prompt
   set_color normal
   set_color white
   printf '%s' (ls -lah | grep -m 1 total | sed 's/total //')
-  set_color normal
+  set_color --bold white
   printf ")"
 
   switch $fish_bind_mode
