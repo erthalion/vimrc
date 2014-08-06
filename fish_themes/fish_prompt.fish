@@ -52,13 +52,13 @@ function fish_prompt
   switch $fish_bind_mode
     case default
       set_color --bold A6A6A6
-      printf "[N]"
+      printf "─(☯)"
     case insert
       set_color --bold BCFA93 
-      printf "[I]"
+      printf "─(✎)"
     case visual
       set_color --bold FAA693
-      printf "[V]"
+      printf "─(↔)"
   end
-  printf '─> '
+  printf '⊳ '
 end
