@@ -43,3 +43,9 @@ alias ginshow='git fetch; git show ..origin/master'
 alias gt='gtc en ru '
 alias ls='ls --color=always'
 alias grep='grep --color=always'
+
+# by some reason keybinding is not working
+# at the config.fish
+# workaround - add to the share/fish/functions/fish_vi_key_bindings.fish
+# bind -M insert \t accept-autosuggestion
+# bind -M insert \co complete
