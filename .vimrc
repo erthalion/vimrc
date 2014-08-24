@@ -35,6 +35,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'eiginn/netrw'
 Bundle 'Chiel92/vim-autoformat'
 Bundle 'junegunn/limelight.vim'
+Bundle 'dag/vim-fish'
+Bundle 'LanguageTool'
 
 "" display TODO, FIXME and other
 Bundle 'TaskList.vim'
@@ -296,7 +298,12 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 "" set global conf file
 let g:ycm_global_ycm_extra_conf = '/home/erthalion/.ycm_extra_conf.py'
 
+"" Language tool
+let g:languagetool_jar='/home/erthalion/build/LanguageTool-2.6/languagetool-commandline.jar'
+
 "--- Vim settings ----------------------------------------------------------
+
+set shell=/bin/bash
 
 set autoread
 
