@@ -4,6 +4,10 @@
 . /etc/profile.d/autojump.fish
 fish_vi_key_bindings
 
+function fish_title
+    echo $_
+end
+
 set fish_greeting ""
 
 set -x EDITOR vim
