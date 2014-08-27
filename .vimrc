@@ -114,6 +114,7 @@ Bundle 'othree/html5.vim'
 Bundle 'nono/vim-handlebars'
 Bundle 'groenewege/vim-less'
 Bundle 'gregsexton/MatchTag'
+Bundle 'othree/javascript-libraries-syntax.vim'
 
 "--- Po ------------------------------------
 Bundle 'vim-scripts/po.vim--Bailey'
