@@ -47,6 +47,7 @@ alias ginshow='git fetch; git show ..origin/master'
 alias gt='gtc en ru '
 alias ls='ls --color=always'
 alias grep='grep --color=always'
+alias vimread='vim -u ~/.vimrc_reading'
 
 # by some reason keybinding is not working
 # at the config.fish
