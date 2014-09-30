@@ -37,6 +37,9 @@ Bundle 'Chiel92/vim-autoformat'
 Bundle 'junegunn/limelight.vim'
 Bundle 'dag/vim-fish'
 Bundle 'LanguageTool'
+Bundle 'tpope/vim-markdown'
+Bundle 'SyntaxRange'
+Bundle 'reedes/vim-wordy'
 
 "" display TODO, FIXME and other
 Bundle 'TaskList.vim'
@@ -107,7 +110,8 @@ Bundle 'Twinside/vim-hoogle'
 
 "--- Html/Css/Js/Coffee/Haml ---------------
 Bundle 'mattn/emmet-vim'
-Bundle 'Better-CSS-Syntax-for-Vim'
+" this plugin has css.vim, that conflicts with vim-less
+"Bundle 'Better-CSS-Syntax-for-Vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-haml'
 Bundle 'othree/html5.vim'
@@ -128,10 +132,10 @@ Bundle 'erthalion/vim-reddit'
 Bundle 'Floobits/floobits-vim'
 "Bundle 'vim-soundcloud'
 Bundle 'scrooloose/syntastic'
-""Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 
 "" Timetracking
-Bundle 'wakatime/vim-wakatime'
+"Bundle 'wakatime/vim-wakatime'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
