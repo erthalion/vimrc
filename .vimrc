@@ -40,6 +40,7 @@ Bundle 'LanguageTool'
 Bundle 'tpope/vim-markdown'
 Bundle 'SyntaxRange'
 Bundle 'reedes/vim-wordy'
+Bundle 'mhinz/vim-randomtag'
 
 "" display TODO, FIXME and other
 Bundle 'TaskList.vim'
