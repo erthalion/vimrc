@@ -342,6 +342,7 @@ set novisualbell
 set t_vb=
 set mouse=a
 set mousemodel=popup
+set breakindent
 
 if has("win32")
     set termencoding=cp1251,utf-8
