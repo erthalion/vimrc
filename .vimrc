@@ -208,6 +208,7 @@ let g:LargeFile=10
 "" -------------------------------------------------------------------------
 
 "" PyMode ------------------------------------------------------------------
+let g:pymode_options_colorcolumn = 0
 let g:pymode_breakpoint_key = "<leader>br"
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'

@@ -1,0 +1,5 @@
+# must be plased at ~/.config/flake8
+[flake8]
+ignore = E121,E122,E123,E126,E127,E128,E133
+max-line-length = 120
+max-complexity = 10
