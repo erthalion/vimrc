@@ -11,132 +11,134 @@ set nocompatible
 filetype off " for vundle
 
 set rtp+=~/.vim/bundle/vundle/
-
-call vundle#rc()
+call vundle#begin()
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 "--- VCS -------------------------------------
-Bundle 'tpope/vim-fugitive'
-Bundle 'vcscommand.vim'
-Bundle 'hgrev'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vcscommand.vim'
+Plugin 'hgrev'
 
 "" Git log viewer
-Bundle 'gregsexton/gitv'
+Plugin 'gregsexton/gitv'
 
 "--- Utils -----------------------------------
-Bundle 'snipMate'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-surround'
-Bundle 'eiginn/netrw'
-Bundle 'Chiel92/vim-autoformat'
-Bundle 'junegunn/limelight.vim'
-Bundle 'dag/vim-fish'
-Bundle 'LanguageTool'
-Bundle 'tpope/vim-markdown'
-Bundle 'SyntaxRange'
-Bundle 'reedes/vim-wordy'
-Bundle 'mhinz/vim-randomtag'
+Plugin 'snipMate'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
+Plugin 'eiginn/netrw'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'junegunn/limelight.vim'
+Plugin 'dag/vim-fish'
+Plugin 'LanguageTool'
+Plugin 'tpope/vim-markdown'
+Plugin 'SyntaxRange'
+Plugin 'reedes/vim-wordy'
+Plugin 'mhinz/vim-randomtag'
 
 "" display TODO, FIXME and other
-Bundle 'TaskList.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'LargeFile'
+Plugin 'TaskList.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'LargeFile'
 
 "" Make gist
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+Plugin 'mattn/webapi-vim'
 
-Bundle 'erthalion/taskpaper.vim'
-Bundle 'camelcasemotion'
-Bundle 'kien/ctrlp.vim'
+Plugin 'erthalion/taskpaper.vim'
+Plugin 'camelcasemotion'
+Plugin 'kien/ctrlp.vim'
 
 "" Additional functional for %
-Bundle 'edsono/vim-matchit'
+Plugin 'edsono/vim-matchit'
 
 "" Change word case (camel, underscore, ...)
-Bundle 'tpope/vim-abolish'
+Plugin 'tpope/vim-abolish'
 
 "" Reading
-Bundle 'mikewest/vimroom'
-Bundle 'majutsushi/tagbar'
-Bundle 'terryma/vim-multiple-cursors'
+Plugin 'mikewest/vimroom'
+Plugin 'majutsushi/tagbar'
+Plugin 'terryma/vim-multiple-cursors'
 
 "" Light powerline analog
-Bundle 'itchyny/lightline.vim'
+Plugin 'itchyny/lightline.vim'
 
 "" Autocomplete brackets
-Bundle 'Raimondi/delimitMate'
+Plugin 'Raimondi/delimitMate'
 
-Bundle 'ervandew/supertab'
-Bundle 'sjl/gundo.vim'
-Bundle 'erthalion/easy-doc.vim'
+Plugin 'ervandew/supertab'
+Plugin 'sjl/gundo.vim'
+Plugin 'erthalion/easy-doc.vim'
 
 "--- C/C++ ----------------------------------
-Bundle 'cpp.vim'
-Bundle 'OmniCppComplete'
+Plugin 'cpp.vim'
+Plugin 'OmniCppComplete'
+"Plugin 'bbchung/clighter'
 
 "" Autocomplete includes
-Bundle 'xaizek/vim-inccomplete'
+Plugin 'xaizek/vim-inccomplete'
 
 "--- Python ---------------------------------
 
 "" Auto hightlight
-Bundle 'pyflakes.vim'
-Bundle 'pydoc.vim'
-Bundle 'python.vim'
-Bundle 'klen/python-mode'
-Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'alfredodeza/coveragepy.vim'
+Plugin 'pyflakes.vim'
+Plugin 'pydoc.vim'
+Plugin 'python.vim'
+Plugin 'klen/python-mode'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'alfredodeza/coveragepy.vim'
 
 " Temporary disabled, because this plugin has strange behaviour
 " and map <F5>, which break cpp build
-"Bundle 'ivanov/vim-ipython'
+"Plugin 'ivanov/vim-ipython'
 
-"Bundle 'davidhalter/jedi-vim'
-Bundle 'lambdalisue/vim-django-support'
-Bundle 'nvie/vim-flake8'
+"Plugin 'davidhalter/jedi-vim'
+Plugin 'lambdalisue/vim-django-support'
+Plugin 'nvie/vim-flake8'
 " dont forget copy snippets from
 " https://github.com/robhudson/snipmate_for_django
 
 "--- Haskell -------------------------------
-Bundle 'ujihisa/neco-ghc'
-Bundle 'haskell/haskell-mode'
-Bundle 'haskell.vim'
-Bundle 'Twinside/vim-hoogle'
+Plugin 'ujihisa/neco-ghc'
+Plugin 'haskell/haskell-mode'
+Plugin 'haskell.vim'
+Plugin 'Twinside/vim-hoogle'
 
 "--- Html/Css/Js/Coffee/Haml ---------------
-Bundle 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim'
 " this plugin has css.vim, that conflicts with vim-less
-"Bundle 'Better-CSS-Syntax-for-Vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-haml'
-Bundle 'othree/html5.vim'
-Bundle 'nono/vim-handlebars'
-Bundle 'groenewege/vim-less'
-Bundle 'gregsexton/MatchTag'
-Bundle 'othree/javascript-libraries-syntax.vim'
+"Plugin 'Better-CSS-Syntax-for-Vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-haml'
+Plugin 'othree/html5.vim'
+Plugin 'nono/vim-handlebars'
+Plugin 'groenewege/vim-less'
+Plugin 'gregsexton/MatchTag'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'marijnh/tern_for_vim.git'
 
 "--- Po ------------------------------------
-Bundle 'vim-scripts/po.vim--Bailey'
+Plugin 'vim-scripts/po.vim--Bailey'
 
 "--- Other ---------------------------------
-"Bundle 'ervandew/eclim'
-Bundle 'wombat256.vim'
-Bundle 'gavinheavyside/vim-asciidoc'
-Bundle 'TwitVim'
-Bundle 'erthalion/vim-reddit'
-Bundle 'Floobits/floobits-vim'
-"Bundle 'vim-soundcloud'
-Bundle 'scrooloose/syntastic'
-Bundle 'Valloric/YouCompleteMe'
+"Plugin 'ervandew/eclim'
+Plugin 'wombat256.vim'
+Plugin 'gavinheavyside/vim-asciidoc'
+"Plugin 'TwitVim'
+"Plugin 'erthalion/vim-reddit'
+"Plugin 'Floobits/floobits-vim'
+"Plugin 'vim-soundcloud'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
 
 "" Timetracking
-"Bundle 'wakatime/vim-wakatime'
+"Plugin 'wakatime/vim-wakatime'
+call vundle#end()
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -214,7 +216,7 @@ let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 let g:pymode_lint_write = 0
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
+let g:pymode_lint_checker = ["pyflakes", "pep8", "mccabe"]
 let g:pymode_lint_onfly = 0
 " Load rope plugin
 let g:pymode_rope = 0
