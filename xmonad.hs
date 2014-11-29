@@ -9,6 +9,7 @@ import XMonad.Layout.Grid
 import Data.Ratio ((%))
 import XMonad.Hooks.FloatNext
 import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.Renamed
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
@@ -51,17 +52,25 @@ myManageHook = composeAll [
     resource =? "XXkb" --> doIgnore,
     resource =? "gnome-terminal" --> doFloatAt 0.0 0.71,
     className =? "Pidgin" --> doShift "5:im",
-    className =? "Chromium-browser" --> doShift "3:web"
+    className =? "Chromium-browser" --> doShift "3:web",
+    className =? "dwb" --> doShift "3:web"
     ]
 
-myLayout = onWorkspace "5:im" imLayout $ onWorkspace "3:web" Full $ tiled ||| Mirror tiled ||| Full
+myLayout = onWorkspace "5:im" imLayout $ onWorkspace "3:web" Full $ (
+        renamed [Replace "Tall"] tiled                  |||
+        renamed [Replace "Split"] split                 |||
+        renamed [Replace "Mirror tall"] (Mirror tiled)  |||
+        renamed [Replace "Full"] Full
+    )
     where
-    tiled = Tall nmaster1 delta ratio
-    nmaster1 = 1
-    ratio = 2/3
-    delta = 3/100
-    gridLayout = Grid
-    imLayout = withIM (18/100) (Role "buddy_list") gridLayout
+        tiled = Tall nmaster1 delta ratio
+        split = Tall nmaster1 delta splitRatio
+        nmaster1 = 1
+        ratio = 2/3
+        splitRatio = 1/2
+        delta = 3/100
+        gridLayout = Grid
+        imLayout = withIM (18/100) (Role "buddy_list") gridLayout
 
 myMouseBinding (XConfig {XMonad.modMask = modMask}) = M.fromList
     [ ((modMask .|. shiftMask, button1), \w -> focus w >> mouseMoveWindow w
