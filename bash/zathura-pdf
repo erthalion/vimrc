@@ -1,0 +1,2 @@
+#!/bin/bash
+tabbed -c zathura -e
