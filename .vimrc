@@ -654,12 +654,16 @@ endfunction
 au FileType python call BindTag_Python()
 
 """ For Vimroom
-function! Read()
+function! ReadRoom()
     execute ":NERDTreeClose"
     execute ":set nocursorline"
     execute ":set nonumber"
     execute ":VimroomToggle"
 endfunction
+
+if !exists(":ReadRoom")
+    command ReadRoom :call ReadRoom()
+endif
 
 map <F4>  :call TRANSLATE()<cr>
 function TRANSLATE()
