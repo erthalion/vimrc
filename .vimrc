@@ -7,139 +7,143 @@ if filereadable("/etc/vim/vimrc.local")
 endif
 
 
-set nocompatible
-filetype off " for vundle
+if has('vim_starting')
+    set nocompatible
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 
 """"""""""""""""""""""""""""""""""""""""""""""
 
-Plugin 'gmarik/vundle'
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 "--- VCS -------------------------------------
-Plugin 'tpope/vim-fugitive'
-Plugin 'vcscommand.vim'
-Plugin 'hgrev'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'vcscommand.vim'
+NeoBundle 'hgrev'
 
 "" Git log viewer
-Plugin 'gregsexton/gitv'
+NeoBundleLazy 'gregsexton/gitv', {'autoload': {'commands': 'Gitv'}}
 
 "--- Utils -----------------------------------
-Plugin 'snipMate'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
-Plugin 'eiginn/netrw'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'junegunn/limelight.vim'
-Plugin 'dag/vim-fish'
-Plugin 'LanguageTool'
-Plugin 'tpope/vim-markdown'
-Plugin 'SyntaxRange'
-Plugin 'reedes/vim-wordy'
-Plugin 'mhinz/vim-randomtag'
+"NeoBundle 'snipMate'
+NeoBundleLazy 'scrooloose/nerdtree', {'augroup' : 'NERDTree'}
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'tpope/vim-surround'
+"NeoBundle 'eiginn/netrw'
+NeoBundleLazy 'Chiel92/vim-autoformat', {'autoload': {'commands': 'Autoformat'}} 
+NeoBundleLazy 'junegunn/limelight.vim', {'autoload': {'commands': 'Limelight'}}
+NeoBundle 'dag/vim-fish', {'autoload': {'filetypes': ['fish']}}
+NeoBundleLazy 'LanguageTool', {'autoload': {'commands': 'LanguageToolCheck'}}
+NeoBundle 'tpope/vim-markdown', {'autoload': {'filetypes': ['markdown']}}
+NeoBundle 'SyntaxRange'
+"NeoBundle 'reedes/vim-wordy'
+"NeoBundle 'mhinz/vim-randomtag'
+NeoBundle 'Shougo/vimproc.vim'
+"NeoBundle 'Shougo/vimshell.vim'
+NeoBundleLazy 'Z1MM32M4N/vim-superman', {'autoload': {'commands': 'SuperMan'}}
 
 "" display TODO, FIXME and other
-Plugin 'TaskList.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'LargeFile'
+"NeoBundle 'TaskList.vim'
+NeoBundleLazy 'mileszs/ack.vim', {'autoload': {'commands': 'Ack'}}
+NeoBundle 'LargeFile'
 
 "" Make gist
-Plugin 'mattn/gist-vim'
-Plugin 'mattn/webapi-vim'
+NeoBundleLazy 'mattn/gist-vim', {'autoload': {'commands': 'Gist'}, 'depends': 'mattn/webapi-vim'}
+NeoBundleLazy 'mattn/webapi-vim'
 
-Plugin 'erthalion/taskpaper.vim'
-Plugin 'camelcasemotion'
-Plugin 'kien/ctrlp.vim'
+"NeoBundle 'erthalion/taskpaper.vim'
+NeoBundle 'camelcasemotion'
+NeoBundleLazy 'kien/ctrlp.vim', {'autoload': {'commands': 'CtrlP', 'mappings': '<c-p>'}}
 
 "" Additional functional for %
-Plugin 'edsono/vim-matchit'
+NeoBundle 'edsono/vim-matchit'
 
 "" Change word case (camel, underscore, ...)
-Plugin 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-abolish'
 
 "" Reading
-Plugin 'mikewest/vimroom'
-Plugin 'majutsushi/tagbar'
-Plugin 'terryma/vim-multiple-cursors'
+NeoBundleLazy 'mikewest/vimroom', {'autoload': {'commands': 'VimroomToggle'}}
+NeoBundleLazy 'majutsushi/tagbar', {'autoload': {'commands': 'TagbarToggle'}}
+"NeoBundle 'terryma/vim-multiple-cursors'
 
 "" Light powerline analog
-Plugin 'itchyny/lightline.vim'
+NeoBundle 'itchyny/lightline.vim'
 
 "" Autocomplete brackets
-Plugin 'Raimondi/delimitMate'
+NeoBundle 'Raimondi/delimitMate'
 
-Plugin 'ervandew/supertab'
-Plugin 'sjl/gundo.vim'
-Plugin 'erthalion/easy-doc.vim'
+NeoBundle 'ervandew/supertab'
+"NeoBundle 'sjl/gundo.vim'
+NeoBundleLazy 'erthalion/easy-doc.vim', {'autoload': {'mappings': '\/'}}
 
 "--- C/C++ ----------------------------------
-Plugin 'cpp.vim'
-Plugin 'OmniCppComplete'
-"Plugin 'bbchung/clighter'
+NeoBundleLazy 'cpp.vim', {'autoload': {'filetypes': ['c', 'cpp']}}
+NeoBundle 'OmniCppComplete', {'autoload': {'filetypes': ['c', 'cpp']}}
+"NeoBundle 'bbchung/clighter'
 
 "" Autocomplete includes
-Plugin 'xaizek/vim-inccomplete'
+NeoBundle 'xaizek/vim-inccomplete', {'autoload': {'filetypes': ['c', 'cpp']}}
 
 "--- Python ---------------------------------
 
 "" Auto hightlight
-Plugin 'pyflakes.vim'
-Plugin 'pydoc.vim'
-Plugin 'python.vim'
-Plugin 'klen/python-mode'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'alfredodeza/coveragepy.vim'
+NeoBundle 'pyflakes.vim', {'autoload': {'filetypes': 'py'}}
+NeoBundle 'pydoc.vim', {'autoload': {'filetypes': 'py'}}
+NeoBundle 'python.vim', {'autoload': {'filetypes': 'py'}}
+NeoBundle 'klen/python-mode', {'autoload': {'filetypes': 'py'}}
+NeoBundle 'hynek/vim-python-pep8-indent', {'autoload': {'filetypes': 'py'}}
+NeoBundle 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': 'py'}}
 
 " Temporary disabled, because this plugin has strange behaviour
 " and map <F5>, which break cpp build
-"Plugin 'ivanov/vim-ipython'
+"NeoBundle 'ivanov/vim-ipython'
 
-"Plugin 'davidhalter/jedi-vim'
-Plugin 'lambdalisue/vim-django-support'
-Plugin 'nvie/vim-flake8'
+"NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'lambdalisue/vim-django-support', {'autoload': {'filetypes': 'py'}}
+NeoBundle 'nvie/vim-flake8', {'autoload': {'filetypes': 'py'}}
 " dont forget copy snippets from
 " https://github.com/robhudson/snipmate_for_django
 
 "--- Haskell -------------------------------
-Plugin 'ujihisa/neco-ghc'
-Plugin 'haskell/haskell-mode'
-Plugin 'haskell.vim'
-Plugin 'Twinside/vim-hoogle'
+NeoBundle 'ujihisa/neco-ghc', {'autoload': {'filetypes': 'hs'}}
+NeoBundle 'haskell/haskell-mode', {'autoload': {'filetypes': 'hs'}}
+NeoBundle 'haskell.vim', {'autoload': {'filetypes': 'hs'}}
+NeoBundle 'Twinside/vim-hoogle', {'autoload': {'filetypes': 'hs'}}
 
 "--- Html/Css/Js/Coffee/Haml ---------------
-Plugin 'mattn/emmet-vim'
+NeoBundle 'mattn/emmet-vim', {'autoload': {'filetypes': ['html', 'htmldjango']}}
 " this plugin has css.vim, that conflicts with vim-less
-"Plugin 'Better-CSS-Syntax-for-Vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'tpope/vim-haml'
-Plugin 'othree/html5.vim'
-Plugin 'nono/vim-handlebars'
-Plugin 'groenewege/vim-less'
-Plugin 'gregsexton/MatchTag'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'marijnh/tern_for_vim.git'
+"NeoBundle 'Better-CSS-Syntax-for-Vim'
+NeoBundle 'kchmck/vim-coffee-script', {'autoload': {'filetypes': 'coffee'}}
+NeoBundleLazy 'tpope/vim-haml', {'autoload': {'filetypes': 'haml'}}
+NeoBundle 'othree/html5.vim', {'autoload': {'filetypes': ['html', 'htmldjango']}}
+"NeoBundle 'nono/vim-handlebars'
+"NeoBundle 'groenewege/vim-less'
+NeoBundle 'gregsexton/MatchTag', {'autoload': {'filetypes': ['html', 'htmldjango']}}
+"NeoBundle 'othree/javascript-libraries-syntax.vim'
+NeoBundle 'marijnh/tern_for_vim.git', {'autoload': {'filetypes': 'js'}}
+NeoBundle 'heartsentwined/vim-emblem', {'autoload': {'filetypes': 'emblem'}}
 
 "--- Po ------------------------------------
-Plugin 'vim-scripts/po.vim--Bailey'
+"NeoBundle 'vim-scripts/po.vim--Bailey'
 
 "--- Other ---------------------------------
-"Plugin 'ervandew/eclim'
-Plugin 'wombat256.vim'
-Plugin 'gavinheavyside/vim-asciidoc'
-"Plugin 'TwitVim'
-"Plugin 'erthalion/vim-reddit'
-"Plugin 'Floobits/floobits-vim'
-"Plugin 'vim-soundcloud'
-Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
+"NeoBundle 'ervandew/eclim'
+NeoBundle 'wombat256.vim'
+"NeoBundle 'gavinheavyside/vim-asciidoc'
+"NeoBundle 'TwitVim'
+"NeoBundle 'erthalion/vim-reddit'
+"NeoBundle 'Floobits/floobits-vim'
+"NeoBundle 'vim-soundcloud'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Valloric/YouCompleteMe'
 
 "" Timetracking
-"Plugin 'wakatime/vim-wakatime'
-call vundle#end()
-
+"NeoBundle 'wakatime/vim-wakatime'
+call neobundle#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on " for vundle
