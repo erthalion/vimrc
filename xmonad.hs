@@ -48,7 +48,7 @@ myHdParm = "/bin/bash /home/erthalion/bash/hdparm.sh"
 
 myXFlux="xflux -l 55.1959 -g 86.0449"
 
-cbattery = "cbatticon -u 60 -i symbolic -r 10 -c 'notify-send \"Battery status\" \"Critical battery level\"' --icon=dialog-warning"
+cbattery = "cbatticon -u 60 -i symbolic -r 10 -c 'notify-send \"Battery status\" \"Critical battery level\" -i dialog-warning'"
 
 myManageHook = composeAll [
     resource =? "XXkb" --> doIgnore,
