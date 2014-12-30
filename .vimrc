@@ -44,6 +44,7 @@ NeoBundle 'SyntaxRange'
 NeoBundle 'Shougo/vimproc.vim'
 "NeoBundle 'Shougo/vimshell.vim'
 NeoBundleLazy 'Z1MM32M4N/vim-superman', {'autoload': {'commands': 'SuperMan'}}
+NeoBundle 'christoomey/vim-tmux-navigator'
 
 "" display TODO, FIXME and other
 "NeoBundle 'TaskList.vim'
