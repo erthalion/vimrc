@@ -725,3 +725,5 @@ let g:ctrlp_custom_ignore = '\v[\/]\build$'
 " snipmate
 ino <c-j> <c-r>=TriggerSnippet()<cr>
 snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
+
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
