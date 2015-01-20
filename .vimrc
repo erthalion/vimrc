@@ -708,10 +708,7 @@ map <leader>pp :setlocal paste!<cr>
 nnoremap <leader>s :Ack <CR>:cw<CR>
 
 " for ii
-map <leader>ii :.w >> ~/irc/irc.freenode.net/in<cr>dd
-map <leader>iv :.w >> ~/irc/irc.freenode.net/\#vim/in<cr>dd
-map <leader>ih :.w >> ~/irc/irc.freenode.net/\#haskell/in<cr>dd
-map <leader>ig :.w >> ~/irc/irc.freenode.net/\#gentoo/in<cr>dd
+map <leader>ii :.w >> ~/irc/$SERVER/$CHANNEL/in<cr>dd
 
 " use vcs for CtrlP
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
@@ -727,3 +724,5 @@ ino <c-j> <c-r>=TriggerSnippet()<cr>
 snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+map <leader>cl :redraw!<cr>
