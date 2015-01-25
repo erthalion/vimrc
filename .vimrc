@@ -23,6 +23,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vcscommand.vim'
 NeoBundle 'hgrev'
+NeoBundle 'junegunn/vim-github-dashboard', {'autoload': {'commands': ['GHD', 'GHA']}}
 
 "" Git log viewer
 NeoBundleLazy 'gregsexton/gitv', {'autoload': {'commands': 'Gitv'}}
