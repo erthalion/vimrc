@@ -1,7 +1,7 @@
 #!/bin/sh
 
-export SERVER=irc.freenode.net
-export CHANNEL=$1
+tmux set-environment SERVER irc.freenode.net
+tmux set-environment CHANNEL $1
 
 tmux rename-window $1
 tmux splitw -v -p 30 'vim'
