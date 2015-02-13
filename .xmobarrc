@@ -2,6 +2,15 @@ Config { font = "xft:DejaVu Sans Mono:size=8:antialias=true"
        , bgColor = "black"
        , fgColor = "grey"
        , position = TopW L 85
+       , border = TopB
+       , borderColor = "black"
+       , allDesktops = True
+       , overrideRedirect = True
+       , pickBroadest = False
+       , hideOnStart = False
+       , lowerOnStart = True
+       , persistent = False
+       , iconRoot = "."
        , commands = [Run CommandReader "~/.pymodoro/pymodoro.py" "pomodoro"
                     , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
                     , Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","red"] 10
