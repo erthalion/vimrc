@@ -73,7 +73,7 @@ ${voffset 10}${offset 270}${color 2c2c2c}${hr 4}
 ${image ~/.conky/rev-eng.1.png}
 
 ${offset 1210}${voffset -68}${color ffffff}${font Santana:size=14:style=Bold}${execpi 120 ~/bash/gmail.py }
-${offset 1045}${voffset -45}${color ffffff}${font Santana:size=14:style=Bold}${execpi 7200 ~/bash/weather2.py current}
+${offset 1045}${voffset -45}${color ffffff}${font Santana:size=14:style=Bold}${execpi 7200 ~/bash/weather.py}
 
 
 ${offset 130}${voffset 260}${font Santana:size=9:style=Bold}home : ${font Santana:size=9}${fs_used /home}/${fs_size /home}
