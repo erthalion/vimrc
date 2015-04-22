@@ -185,6 +185,7 @@ endfunction
 "" youcompleteme"
 "" autoclose preview
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_auto_trigger=0
 
 "" hgrev -------------------------------------------------------------------
 let g:hgrevAutoUpdate = 1
