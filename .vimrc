@@ -46,6 +46,7 @@ NeoBundle 'Shougo/vimproc.vim'
 "NeoBundle 'Shougo/vimshell.vim'
 NeoBundleLazy 'Z1MM32M4N/vim-superman', {'autoload': {'commands': 'SuperMan'}}
 NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'terryma/vim-expand-region'
 
 "" display TODO, FIXME and other
 "NeoBundle 'TaskList.vim'
@@ -104,7 +105,8 @@ NeoBundle 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': 'py'}}
 "NeoBundle 'ivanov/vim-ipython'
 
 "NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'lambdalisue/vim-django-support', {'autoload': {'filetypes': 'py'}}
+" probably this plugin is the source of slowness
+"NeoBundle 'lambdalisue/vim-django-support', {'autoload': {'filetypes': 'py'}}
 NeoBundle 'nvie/vim-flake8', {'autoload': {'filetypes': 'py'}}
 " dont forget copy snippets from
 " https://github.com/robhudson/snipmate_for_django
@@ -586,6 +588,21 @@ imap <leader>def :RopeGotoDefinition<cr>
 imap [ []<LEFT>
 " Аналогично и для {
 imap {<CR> {<CR>}<Esc>O
+
+" Copy/Paste from buffer
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" Mapping for vim-expand-region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+" Quick select text you just pasted
+noremap gV `[v`]
 ""-----------------------------------------------------------------------------
 
 "--- Functions ----------------------------------------------------------------
