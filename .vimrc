@@ -47,6 +47,7 @@ NeoBundle 'Shougo/vimproc.vim'
 NeoBundleLazy 'Z1MM32M4N/vim-superman', {'autoload': {'commands': 'SuperMan'}}
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'terryma/vim-expand-region'
+NeoBundle 'chrisbra/vim-diff-enhanced'
 
 "" display TODO, FIXME and other
 "NeoBundle 'TaskList.vim'
