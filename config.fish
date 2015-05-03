@@ -26,9 +26,11 @@ set -x AUTOJUMP_AUTOCOMPLETE_CMDS 'cp vim'
 
 set -x CHROMIUM_FLAGS '--disk-cache-size=1 --media-cache-size=1'
 
-set -x PYTHONDONTWRITEBYTECODE true
-set -x PYTHONPATH /home/erthalion/.local/lib64/python2.7/site-packages/ $PYTHONPATH
+#set -x PYTHONDONTWRITEBYTECODE true
+set -x PYTHONPATH /home/erthalion/.local/lib64/python2.7/site-packages/ /home/erthalion/.local/lib64/python3.4/site-packages/ $PYTHONPATH
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
+
+set -x VMAIL_HTML_PART_READER 'links -dump'
 
 alias s='source .env/bin/activate.fish'
 alias gs='git status '
