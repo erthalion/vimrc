@@ -342,6 +342,7 @@ set noswapfile
 set nocompatible
 set ruler
 set nu
+set rnu
 set foldmethod=indent
 set foldlevelstart=40
 set incsearch
