@@ -129,6 +129,8 @@ NeoBundle 'othree/html5.vim', {'autoload': {'filetypes': ['html', 'htmldjango']}
 "NeoBundle 'groenewege/vim-less'
 NeoBundle 'gregsexton/MatchTag', {'autoload': {'filetypes': ['html', 'htmldjango']}}
 "NeoBundle 'othree/javascript-libraries-syntax.vim'
+
+" don't forget to execute npm install in the tern_for_vim directory
 NeoBundle 'marijnh/tern_for_vim.git', {'autoload': {'filetypes': 'js'}}
 NeoBundle 'heartsentwined/vim-emblem', {'autoload': {'filetypes': 'emblem'}}
 
@@ -512,6 +514,8 @@ autocmd BufRead *.py set smartindent"cinwords=if,elif,else,for,while,try,except,
 autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ -T4A1
 autocmd BufNewFile,BufRead *.cs set formatprg=astyle\ -T4A1
 autocmd BufNewFile,BufRead *.java set formatprg=astyle\ -T4A1
+
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 "------------------------------------------------------------------------------------
 
 
