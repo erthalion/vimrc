@@ -760,3 +760,15 @@ map <leader>cl :redraw!<cr>
     "set unnamedclip " Automatically use clipboard as storage for the unnamed register"
 "endif
 
+function! ListLeaders()
+     silent! redir @a
+     silent! nmap <LEADER>
+     silent! redir END
+     silent! new
+     silent! put! a
+     silent! g/^s*$/d
+     silent! %s/^.*,//
+     silent! normal ggVg
+     silent! sort
+     silent! let lines = getline(1,"$")
+endfunction
