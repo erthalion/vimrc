@@ -751,3 +751,12 @@ snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 map <leader>cl :redraw!<cr>
+
+" python host is not actual, clipboard should be investigated
+"if has('neovim')
+    "let s:python_host_init = 'python -c "import neovim; neovim.start_host()"'
+    "let &initpython = s:python_host_init
+    "let &initclipboard = s:python_host_init
+    "set unnamedclip " Automatically use clipboard as storage for the unnamed register"
+"endif
+
