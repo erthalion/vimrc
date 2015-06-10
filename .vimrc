@@ -113,10 +113,15 @@ NeoBundle 'nvie/vim-flake8', {'autoload': {'filetypes': 'py'}}
 " https://github.com/robhudson/snipmate_for_django
 
 "--- Haskell -------------------------------
-NeoBundle 'ujihisa/neco-ghc', {'autoload': {'filetypes': 'hs'}}
-NeoBundle 'haskell/haskell-mode', {'autoload': {'filetypes': 'hs'}}
-NeoBundle 'haskell.vim', {'autoload': {'filetypes': 'hs'}}
-NeoBundle 'Twinside/vim-hoogle', {'autoload': {'filetypes': 'hs'}}
+" cabal install ghc-mod
+NeoBundle 'eagletmt/neco-ghc', {'autoload': {'filetypes': 'haskell'}}
+NeoBundle 'haskell.vim', {'autoload': {'filetypes': 'haskell'}}
+" cabal install hoogle
+NeoBundle 'Twinside/vim-hoogle', {'autoload': {'filetypes': 'haskell'}}
+NeoBundle 'Shougo/neocomplete.vim', {'autoload': {'filetypes': 'haskell'}}
+" cabal install hdevtools
+NeoBundle 'bitc/vim-hdevtools', {'autoload': {'filetypes': 'haskell'}}
+NeoBundle 'enomsg/vim-haskellConcealPlus', {'autoload': {'filetypes': 'haskell'}}
 
 "--- Html/Css/Js/Coffee/Haml ---------------
 NeoBundle 'mattn/emmet-vim', {'autoload': {'filetypes': ['html', 'htmldjango']}}
@@ -191,6 +196,7 @@ endfunction
 "" autoclose preview
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_auto_trigger=0
+let g:ycm_semantic_triggers = {'haskell' : ['.']}
 
 "" hgrev -------------------------------------------------------------------
 let g:hgrevAutoUpdate = 1
@@ -504,6 +510,7 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType haskell set omnifunc=necoghc#omnifunc
 
 "Перед сохранением вырезаем пробелы на концах (только в .py файлах)
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
@@ -516,6 +523,8 @@ autocmd BufNewFile,BufRead *.cs set formatprg=astyle\ -T4A1
 autocmd BufNewFile,BufRead *.java set formatprg=astyle\ -T4A1
 
 autocmd FileType javascript setlocal omnifunc=tern#Complete
+
+au FileType haskell nnoremap <buffer> <leader>ht :HdevtoolsType<CR>
 "------------------------------------------------------------------------------------
 
 
