@@ -1,5 +1,9 @@
 " Erthalion <9erthalion6@gmail.com>
 
+if !isdirectory('/home/erthalion/.vim/bundle') && isdirectory('/home/erthalion/vim')
+    echo "Initialize .vim tmpfs directory..."
+    call system("cp -r ~/vim/* ~/.vim/")
+endif
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
