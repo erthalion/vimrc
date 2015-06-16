@@ -785,3 +785,5 @@ function! ListLeaders()
      silent! sort
      silent! let lines = getline(1,"$")
 endfunction
+
+command FormatJSON %!python -m json.tool
