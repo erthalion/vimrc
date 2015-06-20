@@ -1,3 +1,11 @@
+let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
+if !filereadable(neobundle_readme)
+  echo "Installing neobundle.vim..."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+endif
+
 if has('vim_starting')
     set nocompatible
     set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -5,10 +13,11 @@ endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 
-
 """"""""""""""""""""""""""""""""""""""""""""""
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'Shougo/vimproc.vim', { 'build': {'unix': 'make'} }
 
 "--- VCS -------------------------------------
 NeoBundle 'tpope/vim-fugitive'
@@ -33,7 +42,6 @@ NeoBundle 'tpope/vim-markdown', {'autoload': {'filetypes': ['markdown']}}
 NeoBundle 'SyntaxRange'
 "NeoBundle 'reedes/vim-wordy'
 "NeoBundle 'mhinz/vim-randomtag'
-NeoBundle 'Shougo/vimproc.vim'
 "NeoBundle 'Shougo/vimshell.vim'
 NeoBundleLazy 'Z1MM32M4N/vim-superman', {'autoload': {'commands': 'SuperMan'}}
 NeoBundle 'christoomey/vim-tmux-navigator'
@@ -129,6 +137,14 @@ NeoBundle 'gregsexton/MatchTag', {'autoload': {'filetypes': ['html', 'htmldjango
 " don't forget to execute npm install in the tern_for_vim directory
 NeoBundle 'marijnh/tern_for_vim.git', {'autoload': {'filetypes': 'js'}}
 NeoBundle 'heartsentwined/vim-emblem', {'autoload': {'filetypes': 'emblem'}}
+
+"--- Latex ----------------------------------
+ NeoBundleLazy 'LaTeX-Box-Team/LaTeX-Box', { 'autoload' :
+        \   { 'filetypes' : [ 'tex'
+        \ , 'latex'
+        \ ]
+        \   }
+        \ }
 
 "--- Po ------------------------------------
 "NeoBundle 'vim-scripts/po.vim--Bailey'
