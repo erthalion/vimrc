@@ -47,6 +47,8 @@ NeoBundleLazy 'Z1MM32M4N/vim-superman', {'autoload': {'commands': 'SuperMan'}}
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'chrisbra/vim-diff-enhanced'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-easytags'
 
 "" display TODO, FIXME and other
 "NeoBundle 'TaskList.vim'
@@ -157,8 +159,10 @@ NeoBundle 'wombat256.vim'
 "NeoBundle 'vim-reddit'
 "NeoBundle 'Floobits/floobits-vim'
 "NeoBundle 'vim-soundcloud'
+NeoBundle 'takac/vim-hardtime'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'mhinz/vim-rfc.git'
 "NeoBundle "joshhartigan/vim-reddit"
 
 "" Timetracking
