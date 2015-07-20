@@ -10,4 +10,4 @@ proglist() {
 if [ ! -f ~/.proglist ]; then
     proglist $PATH >$PROGSFILE
 fi
-sh -c  "$(eval dmenu -b <$PROGSFILE)"
+sh -c  "$(dmenu -fn 'termius-10' -b <$PROGSFILE)"

@@ -1,20 +1,33 @@
 " Erthalion <9erthalion6@gmail.com>
 
 if !isdirectory('/home/erthalion/.vim/bundle') && isdirectory('/home/erthalion/vim')
-    echo "Initialize .vim tmpfs directory..."
+    silent echo "Initialize .vim tmpfs directory..."
     call system("cp -r ~/vim/* ~/.vim/")
 endif
 
 if !exists('s:vimrc_loaded')
-  source ~/.vim/bundles.vim
-  source ~/.vim/functions.vim
-  source ~/.vim/settings.vim
-  source ~/.vim/autocmd.vim
-  source ~/.vim/keymappings.vim
 
-  for fpath in split(globpath('~/.vim/plugins/', '*.vim'), '\n')
-    exe 'source' fpath
-  endfor
+  let mode=$VIM_MODE
+  if mode == 'reading'
+    source ~/.vim/reading_bundles.vim
+    source ~/.vim/functions.vim
+    source ~/.vim/settings.vim
+    source ~/.vim/keymappings.vim
+
+    source ~/.vim/plugins/vimroom.vim
+    source ~/.vim/plugins/twitvim.vim
+  else
+    source ~/.vim/bundles.vim
+    source ~/.vim/functions.vim
+    source ~/.vim/settings.vim
+    source ~/.vim/autocmd.vim
+    source ~/.vim/keymappings.vim
+
+    for fpath in split(globpath('~/.vim/plugins/', '*.vim'), '\n')
+      exe 'source' fpath
+    endfor
+  endif
+
 endif
 
 " Source a global configuration file if available
