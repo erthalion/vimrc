@@ -22,5 +22,6 @@
     unstage = reset HEAD --
     last = log -1 HEAD
     lastdiff = log --stat --no-merges --max-count=1 -p
+    branch-points = "!f() { git rev-list --boundary $(git rev-parse --abbrev-ref $1)...$2 | grep ^- --color=never | cut -c2-; }; f"
 [push]
 	default = simple
