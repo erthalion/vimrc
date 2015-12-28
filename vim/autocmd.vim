@@ -33,6 +33,3 @@ autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 autocmd BufReadPost,BufEnter,FileReadPost,BufNewFile * call system("tmux rename-window 'vim | " . expand("%:t") . "'")
 autocmd VimLeave * call system("tmux rename-window 'tmux'")
-
-autocmd BufRead,BufNewFile *.md setfiletype markdown
-autocmd FileType markdown :call MDSettings()

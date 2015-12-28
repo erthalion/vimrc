@@ -30,6 +30,8 @@ NeoBundleLazy 'gregsexton/gitv', {'autoload': {'commands': 'Gitv'}}
 
 "--- Utils -----------------------------------
 "NeoBundle 'snipMate'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets'
 NeoBundleLazy 'scrooloose/nerdtree', {'augroup' : 'NERDTree'}
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-surround'
@@ -47,8 +49,11 @@ NeoBundleLazy 'Z1MM32M4N/vim-superman', {'autoload': {'commands': 'SuperMan'}}
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'chrisbra/vim-diff-enhanced'
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-easytags'
+"NeoBundle 'xolox/vim-misc'
+"NeoBundle 'xolox/vim-easytags'
+NeoBundle 'embear/vim-localvimrc'
+NeoBundle 'vim-pandoc/vim-pandoc'
+NeoBundle 'vim-pandoc/vim-pandoc-syntax'
 
 "" display TODO, FIXME and other
 "NeoBundle 'TaskList.vim'
@@ -83,6 +88,7 @@ NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'ervandew/supertab'
 "NeoBundle 'sjl/gundo.vim'
 NeoBundleLazy 'erthalion/easy-doc.vim', {'autoload': {'mappings': '\/'}}
+NeoBundle 'rhysd/committia.vim'
 
 "--- C/C++ ----------------------------------
 NeoBundleLazy 'cpp.vim', {'autoload': {'filetypes': ['c', 'cpp']}}
@@ -101,6 +107,7 @@ NeoBundle 'python.vim', {'autoload': {'filetypes': 'py'}}
 NeoBundle 'klen/python-mode', {'autoload': {'filetypes': 'py'}}
 NeoBundle 'hynek/vim-python-pep8-indent', {'autoload': {'filetypes': 'py'}}
 NeoBundle 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': 'py'}}
+NeoBundle 'ehamberg/vim-cute-python', {'autoload': {'filetypes': 'py'}}
 
 " Temporary disabled, because this plugin has strange behaviour
 " and map <F5>, which break cpp build
