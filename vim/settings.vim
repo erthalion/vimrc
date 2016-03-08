@@ -132,7 +132,7 @@ else
     :colorscheme evening
 endif
 
-" Запуск проверки правописания
+" Spell checker
 setlocal spell spelllang=
 setlocal nospell
 
@@ -141,3 +141,12 @@ set wildignore+=*/build/*,*/bower_components/*,*/dist/*,*/node_modules/*,*/publi
 
 let python_highlight_all = 1
 let g:cmake_build_type = 'Debug'
+
+
+set conceallevel=2
+hi Conceal cterm=NONE ctermbg=NONE ctermfg=NONE
+
+" Add hyphen into keywords to allow
+" autocompletion with it
+" http://stackoverflow.com/a/27070192
+set iskeyword+=\-
