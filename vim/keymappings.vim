@@ -135,3 +135,12 @@ nnoremap <leader>s :Ack <CR>:cw<CR>
 map <leader>ii :.w >> ~/irc/$SERVER/$CHANNEL/in<cr>dd
 
 map <leader>cl :redraw!<cr>
+
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+
+" Paste multiple times
+" http://stackoverflow.com/a/7164121
+xnoremap p pgvy
