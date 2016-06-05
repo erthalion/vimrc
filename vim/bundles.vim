@@ -31,6 +31,9 @@ NeoBundleLazy 'gregsexton/gitv', {'autoload': {'commands': 'Gitv'}}
 "--- Utils -----------------------------------
 "NeoBundle 'snipMate'
 NeoBundle 'SirVer/ultisnips'
+
+" See few examples
+" https://bramp.github.io/js-sequence-diagrams/
 NeoBundle 'xavierchow/vim-sequence-diagram'
 NeoBundle 'honza/vim-snippets'
 NeoBundleLazy 'scrooloose/nerdtree', {'augroup' : 'NERDTree'}
