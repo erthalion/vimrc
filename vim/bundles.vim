@@ -50,11 +50,14 @@ NeoBundleLazy 'Z1MM32M4N/vim-superman', {'autoload': {'commands': 'SuperMan'}}
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'chrisbra/vim-diff-enhanced'
-"NeoBundle 'xolox/vim-misc'
-"NeoBundle 'xolox/vim-easytags'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-easytags'
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'vim-pandoc/vim-pandoc'
 NeoBundle 'vim-pandoc/vim-pandoc-syntax'
+NeoBundle 'pearofducks/ansible-vim'
+NeoBundle 'python-syntax'
+NeoBundle 'mcasper/vim-infer-debugger'
 
 "" display TODO, FIXME and other
 "NeoBundle 'TaskList.vim'
@@ -105,16 +108,17 @@ NeoBundle 'xaizek/vim-inccomplete', {'autoload': {'filetypes': ['c', 'cpp']}}
 NeoBundle 'pyflakes.vim', {'autoload': {'filetypes': 'py'}}
 NeoBundle 'pydoc.vim', {'autoload': {'filetypes': 'py'}}
 NeoBundle 'python.vim', {'autoload': {'filetypes': 'py'}}
-NeoBundle 'klen/python-mode', {'autoload': {'filetypes': 'py'}}
+"NeoBundle 'klen/python-mode', {'autoload': {'filetypes': 'py'}}
 NeoBundle 'hynek/vim-python-pep8-indent', {'autoload': {'filetypes': 'py'}}
 NeoBundle 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': 'py'}}
 NeoBundle 'ehamberg/vim-cute-python', {'autoload': {'filetypes': 'py'}}
+NeoBundle 'pignacio/vim-yapf-format'
 
 " Temporary disabled, because this plugin has strange behaviour
 " and map <F5>, which break cpp build
 "NeoBundle 'ivanov/vim-ipython'
 
-"NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'davidhalter/jedi-vim'
 " probably this plugin is the source of slowness
 "NeoBundle 'lambdalisue/vim-django-support', {'autoload': {'filetypes': 'py'}}
 NeoBundle 'nvie/vim-flake8', {'autoload': {'filetypes': 'py'}}

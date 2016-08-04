@@ -71,6 +71,8 @@ function! ReadRoom()
     execute ":set nocursorline"
     execute ":set nonumber"
     execute ":VimroomToggle"
+    " if $TMUX is set
+    " !tmux set status off
 endfunction
 
 function TRANSLATE()

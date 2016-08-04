@@ -25,6 +25,6 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 "" Language tool
 let g:languagetool_jar='/home/erthalion/build/LanguageTool-2.8/languagetool-commandline.jar'
 
-" snipmate
-ino <c-j> <c-r>=TriggerSnippet()<cr>
-snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
+let g:localvimrc_ask = 0
+
+let g:tex_conceal="adgms"

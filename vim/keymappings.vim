@@ -139,8 +139,14 @@ map <leader>cl :redraw!<cr>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+"open definition in another tab
+"nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+"open definition in vertical split
+map <C-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Paste multiple times
 " http://stackoverflow.com/a/7164121
 xnoremap p pgvy
+
+" Add debugger before line
+nmap <Leader>br :call AddDebugger("O")<cr>
