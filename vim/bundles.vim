@@ -58,6 +58,8 @@ NeoBundle 'vim-pandoc/vim-pandoc-syntax'
 NeoBundle 'pearofducks/ansible-vim'
 NeoBundle 'python-syntax'
 NeoBundle 'mcasper/vim-infer-debugger'
+NeoBundle 'ntpeters/vim-better-whitespace'
+NeoBundle 'junegunn/vim-easy-align'
 
 "" display TODO, FIXME and other
 "NeoBundle 'TaskList.vim'
