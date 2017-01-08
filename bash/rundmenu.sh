@@ -10,4 +10,6 @@ proglist() {
 if [ ! -f ~/.proglist ]; then
     proglist $PATH >$PROGSFILE
 fi
-sh -c  "$(dmenu -fn 'termius-10' -b <$PROGSFILE)"
+#sh -c  "$(dmenu -fn 'termius-10' -b <$PROGSFILE)"
+#sh -c  "$(dmenu -fn 'Monoid-10' -b <$PROGSFILE)"
+sh -c  "$(dmenu -fn 'xft:DejaVu Sans Mono:size=9:antialias=true' -sb "#000000" -nb "#000000" -b <$PROGSFILE)"

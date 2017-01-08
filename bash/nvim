@@ -1,0 +1,3 @@
+#!/bin/bash
+export VIM="/home/erthalion/programms/neovim/runtime"
+/home/erthalion/programms/neovim/build/bin/nvim $@

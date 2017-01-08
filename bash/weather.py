@@ -5,7 +5,7 @@ import sys, urllib2
 import simplejson
 
 TIMEOUT = 20
-URL = "http://api.openweathermap.org/data/2.5/weather?q=Kemerovo,ru"
+URL = "http://api.openweathermap.org/data/2.5/weather?q=Novosibirsk,ru&APPID=bc68eab2821b4f54dfc6bbdb99ba2073"
 
 def main():
 
