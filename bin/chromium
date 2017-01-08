@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source ~/.nix-profile/etc/profile.d/nix.sh
+chromium-browser --disk-cache-dir=/tmp/cache $@

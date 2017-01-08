@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# TERM=xterm
+tabbed -c -r 2 st-bin -w ''

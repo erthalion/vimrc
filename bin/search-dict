@@ -1,0 +1,4 @@
+#!/bin/bash
+
+word=$(cat ~/bin/parsed_cache_uniq | fzf)
+grep "<k>$word</k>" ~/bin/parsed | sed 's/<[^>]\+>/ /g'

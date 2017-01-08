@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo cpulimit -l $1 -p $2
