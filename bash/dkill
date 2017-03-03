@@ -1,0 +1,3 @@
+#! /bin/sh
+
+ps -auxc | tail -n +2 | awk '{print $NF}' | uniq | fzf | xargs pkill $@
