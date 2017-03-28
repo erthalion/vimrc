@@ -101,7 +101,7 @@ vmap <leader>def :RopeGotoDefinition<cr>
 imap <leader>def :RopeGotoDefinition<cr>
 
 " Редко когда надо [ без пары =)
-imap [ []<LEFT>
+inoremap [ []<Left>
 " Аналогично и для {
 imap {<CR> {<CR>}<Esc>O
 
