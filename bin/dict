@@ -1,0 +1,5 @@
+#! /bin/bash
+
+tmux new-session -d -s dictionary 'search-dict'
+tmux splitw -h 'tail -f .search-result 2>/dev/null'
+tmux attach -t dictionary

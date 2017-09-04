@@ -1,4 +1,11 @@
 #!/bin/bash
 
-word=$(cat ~/bin/parsed_cache_uniq | fzf)
-grep "<k>$word</k>" ~/bin/parsed | sed 's/<[^>]\+>/ /g'
+while [ 1 ];
+    do
+    printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' = >> .search-result
+
+    word=$(cat ~/bin/parsed_cache_uniq | fzf)
+    grep "<k>$word</k>" ~/bin/parsed | sed 's/<[^>]\+>/ /g' | sed -E 's/[0-9]+\)/\n\n/g' | sed -E 's/[0-9]+\./\n\n/g' | sed -e 's/  *$//' > .search-result
+    echo "
+    " >> .search-result
+done
