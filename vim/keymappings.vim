@@ -150,3 +150,17 @@ xnoremap p pgvy
 
 " Add debugger before line
 nmap <Leader>br :call AddDebugger("O")<cr>
+
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+vnoremap <leader>p "_dP
+
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+nnoremap n nzz
+nnoremap N Nzz
