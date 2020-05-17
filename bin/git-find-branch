@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+git branch --format ' name %(refname) [%(authordate)]'  --sort='authordate' | grep $1
