@@ -1,0 +1,292 @@
+#--------------------------------------------------------------------------
+# General
+#--------------------------------------------------------------------------
+
+# Local Folders
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+# If created as a repository, this will contain one file per account.
+set header_cache = ~/.mutt/cache/headers
+set header_cache_backend = lmdb
+# Path for temporary data, located directly in user's path
+set tmpdir = ~/.mutt
+set message_cache_clean = no
+
+# Keepalive settings
+set imap_keepalive = 900
+
+# Sidebar
+set sidebar_visible = yes
+set sidebar_format = "%B% %* %?N?%N/?%S"
+set sidebar_new_mail_only = no
+set sidebar_folder_indent = yes
+set sidebar_width = 25
+# Calculate statistics, necessary for incoming message count in
+# sidebar_format.
+set mail_check_stats = yes
+
+# Stop asking to "move read messages to mbox"
+set move = no
+set help=no  # remove the help top bar
+
+# Sort of messages
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+
+# Aliases
+#set alias_file = ~/.mutt_aliases
+#set sort_alias = alias
+#set reverse_alias = yes
+
+# How often to check for new mail (time in seconds).
+set mail_check = 120
+
+# SSL settings
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+# Don't add User-Agent in sent messages
+set user_agent = no
+
+# Handling of reply messages
+# Always include replies
+set fast_reply=yes
+set include=yes
+
+#--------------------------------------------------------------------------
+# Colors
+#--------------------------------------------------------------------------
+
+# Colors for items in the index
+color index brightcyan color234 ~N
+color index brightred color234 ~O
+color index brightyellow color234 ~F
+color index color243 green ~T
+color index brightred color234 ~D
+mono index bold ~N
+mono index bold ~F
+mono index bold ~T
+mono index bold ~D
+
+# Highlights inside the body of a message.
+
+# URLs
+color body brightgreen color234 "(https|http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+color body brightgreen color234 "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+mono body bold "(https|http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+mono body bold "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+
+# Email addresses.
+color body brightgreen color234 "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# Header
+color header green color234 "^from:"
+color header green color234 "^to:"
+color header green color234 "^cc:"
+color header green color234 "^date:"
+color header yellow color234 "^newsgroups:"
+color header yellow color234 "^reply-to:"
+color header brightcyan color234 "^subject:"
+color header red color234 "^x-spam-rule:"
+color header green color234 "^x-mailer:"
+color header yellow color234 "^message-id:"
+color header yellow color234 "^Organization:"
+color header yellow color234 "^Organisation:"
+color header yellow color234 "^User-Agent:"
+color header yellow color234 "^message-id: .*pine"
+color header yellow color234 "^X-Fnord:"
+color header yellow color234 "^X-WebTV-Stationery:"
+
+color header red color234 "^x-spam-rule:"
+color header green color234 "^x-mailer:"
+color header yellow color234 "^message-id:"
+color header yellow color234 "^Organization:"
+color header yellow color234 "^Organisation:"
+color header yellow color234 "^User-Agent:"
+color header yellow color234 "^message-id: .*pine"
+color header yellow color234 "^X-Fnord:"
+color header yellow color234 "^X-WebTV-Stationery:"
+color header yellow color234 "^X-Message-Flag:"
+color header yellow color234 "^X-Spam-Status:"
+color header yellow color234 "^X-SpamProbe:"
+color header red color234 "^X-SpamProbe: SPAM"
+
+# Coloring quoted text - coloring the first 7 levels:
+color quoted cyan color234
+color quoted1 yellow color234
+color quoted2 red color234
+color quoted3 green color234
+color quoted4 cyan color234
+color quoted5 yellow color234
+color quoted6 red color234
+color quoted7 green color234
+
+# Default color definitions
+color hdrdefault white green
+color signature brightmagenta color234
+color indicator color234 cyan
+color attachment color234 green
+color error red color234
+color message white color234
+color search brightwhite magenta
+color status brightyellow blue
+color tree brightblue color234
+color normal white color234
+color tilde green color234
+color bold brightyellow color234
+color underline magenta color234
+color markers brightcyan color234
+
+# Color definitions when on a mono screen
+mono bold bold
+mono underline underline
+mono indicator reverse
+
+#     type          Foreground  Background
+color normal        color254    color234
+color error         color254    color160
+color tilde         color254    color234
+color message       color111    color234
+color markers       color246    color234
+color attachment    color111    color234
+color search        color234    color192
+color status        color254    color0
+color indicator     color234    color192
+color signature     color246    color234
+
+color status color254 color234
+color sidebar_divider color111 color234
+color sidebar_flagged color254 color234
+color sidebar_highlight color246 color234
+color sidebar_indicator color111 color234
+color sidebar_new color254 color234
+
+color   body    brightwhite     color234         ^[[:space:]].*                  
+color   body    yellow          color234         ^(diff).*                       
+#color   body    brightwhite     color234         ^(\s).*                         
+color   body    cyan            color234         ^(Signed-off-by).*
+color   body    cyan            color234         ^(Docker-DCO-1.1-Signed-off-by).*
+color   body    brightwhite     color234         ^(Cc)
+color   body    yellow          color234         "^diff \-.*"
+color   body    brightwhite     color234         "^index [a-f0-9].*"
+color   body    brightblue      color234         "^---$"
+color   body    white           color234         "^\-\-\- .*"
+color   body    white           color234         "^[\+]{3} .*"
+color   body    green           color234         "^[\+][^\+]+.*"
+color   body    red             color234         "^\-[^\-]+.*"
+color   body    brightblue      color234         "^@@ .*"
+color   body    green           color234         "LGTM"
+color   body    brightmagenta   color234         "-- Commit Summary --"
+color   body    brightmagenta   color234         "-- File Changes --"
+color   body    brightmagenta   color234         "-- Patch Links --"
+color   body    green           color234         "^Merged #.*"
+color   body    red             color234         "^Closed #.*"
+color   body    brightblue      color234         "^Reply to this email.*"
+
+#--------------------------------------------------------------------------
+# Key bindings
+#--------------------------------------------------------------------------
+
+# Create an alias when selecting an email
+# macro index,pager a "<create-alias>"
+
+# Thread collapsing
+bind index - collapse-thread
+bind index _ collapse-all
+
+# Sidebar control
+bind index,pager,attach  g         noop
+bind index,pager gn sidebar-next
+bind index,pager gp sidebar-prev
+bind index,pager go sidebar-open
+
+bind generic             z         noop
+bind index,pager         d         noop
+bind index,pager         s         noop
+bind index,pager         c         noop
+bind generic,pager       t         noop
+
+bind generic,index,pager \Cf       next-page
+bind generic,index,pager \Cb       previous-page
+bind generic             gg        first-entry
+bind generic,index       G         last-entry
+bind pager               gg        top
+bind pager               G         bottom
+bind generic,pager       \Cy       previous-line
+bind generic,index,pager \Ce       next-line
+bind generic,index,pager \Cd       half-down
+bind generic,index,pager \Cu       half-up
+bind generic             zt        current-top
+bind generic             zz        current-middle
+bind generic             zb        current-bottom
+bind index               za        collapse-thread
+bind index               zA        collapse-all
+bind index,pager         N         search-opposite
+bind index               <Backtab> previous-new-then-unread
+
+# Actions
+# ----------------------------------------------------
+
+bind  generic,index,pager    ,a   group-reply
+macro index,pager    dd  "<delete-message><sync-mailbox>"                                 "move message to trash"
+macro index,pager    dat "<delete-thread><sync-mailbox>"                                  "move thread to trash"
+macro index,pager    ss  ":macro browser \\015 \"\<select-entry\>\<sync-mailbox\>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015\"\015:macro browser q \"<exit>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015\"\015<save-message>?"                                                                                                                                     "save message to a mailbox"
+macro index          sat ":macro browser \\015 \"\<select-entry\>\<sync-mailbox\>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015\"\015:macro browser q \"<exit>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015'q<untag-pattern>.\\015\"\015<mark-message>q<enter><untag-pattern>.<enter><tag-thread><tag-prefix-cond><save-message>?"                                    "save thread to a mailbox"
+macro index          \;s ":macro browser \\015 \"\<select-entry\>\<sync-mailbox\>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015\"\015:macro browser q \"<exit>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015\"\015<tag-prefix-cond><save-message>?"                                                                                                                    "save tagged messages to a mailbox"
+macro pager          sat ":macro browser \\015 \"\<select-entry\>\<sync-mailbox\>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015<display-message>\"\015:macro browser q \"<exit>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015'q<untag-pattern>.\\015<display-message>\"\015<exit><mark-message>q<enter><untag-pattern>.<enter><tag-thread><tag-prefix><save-message>?" "save thread to a mailbox"
+macro index,pager    cc  ":macro browser \\015 \"\<select-entry\>\<sync-mailbox\>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015\"\015:macro browser q \"<exit>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015\"\015<copy-message>?"                                                                                                                                     "copy message to a mailbox"
+macro index          cat ":macro browser \\015 \"\<select-entry\>\<sync-mailbox\>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015\"\015:macro browser q \"<exit>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015'q<untag-pattern>.\\015\"\015<mark-message>q<enter><untag-pattern>.<enter><tag-thread><tag-prefix-cond><copy-message>?"                                    "copy thread to a mailbox"
+macro index          \;c ":macro browser \\015 \"\<select-entry\>\<sync-mailbox\>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015\"\015:macro browser q \"<exit>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015\"\015<tag-prefix-cond><copy-message>?"                                                                                                                    "copy tagged messages to a mailbox"
+macro pager          cat ":macro browser \\015 \"\<select-entry\>\<sync-mailbox\>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015<display-message>\"\015:macro browser q \"<exit>:bind browser \\\\015 select-entry\\015:bind browser q exit\\015'q<untag-pattern>.\\015<display-message>\"\015<exit><mark-message>q<enter><untag-pattern>.<enter><tag-thread><tag-prefix><copy-message>?" "copy thread to a mailbox"
+bind  generic        tt  tag-entry
+bind  index          tat tag-thread
+bind  pager          tt  tag-message
+macro pager          tat "<exit><mark-message>q<enter><tag-thread>'q<display-message>"    "tag-thread"
+macro index,pager    gx  "<pipe-message>urlview<Enter>"                                   "call urlview to extract URLs out of a message"
+macro attach,compose gx  "<pipe-entry>urlview<Enter>"                                     "call urlview to extract URLs out of a message"
+bind  index,pager    zO   entire-thread
+
+# Command Line
+# ----------------------------------------------------
+
+bind editor \Cp history-up
+bind editor \Cn history-down
+#--------------------------------------------------------------------------
+# Hooks
+#--------------------------------------------------------------------------
+
+# Collapse all thread before entering in a folder
+folder-hook . "exec collapse-all"
+
+#--------------------------------------------------------------------------
+# Inclusions
+#--------------------------------------------------------------------------
+
+# Alias source file
+#source $alias_file
+
+ignore *
+unignore from date subject to cc
+unignore x-mailer
+unignore x-spam-status
+unignore x-spam-report
+
+set read_inc=1000
+set hide_thread_subject=no
+
+set index_format=" %Z %{%Y-%m-%d} %-15.15n %3M %2X %s"
+
+auto_view text/plain
+auto_view text/x-diff
+
+set nm_default_uri="notmuch:///maildir" # path to the maildir
+set virtual_spoolfile=yes                          # enable virtual folders
+macro index \\ "<vfolder-from-query>"
+virtual-mailboxes \
+    "box1"     "notmuch://?query=folder:box1"\
+    "box2"     "notmuch://?query=folder:box2"\
+
+# Private parameters
+# They are included at the end to enforce existing values if wanted
+# by user and ignored in source tree.
+source ~/.mutt_extra
