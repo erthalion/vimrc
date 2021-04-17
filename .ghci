@@ -1,0 +1,24 @@
+:load ~/.ghci.hs
+
+:def pretty \_ -> return (":set -interactive-print=Text.Pretty.Simple.pPrint")
+:def no-pretty \_ -> return (":set -interactive-print System.IO.print")
+
+:def package \m -> return $ ":! ghc-pkg --simple-output find-module " ++ m
+:def rr \_ -> return ":script ~/.ghci"
+
+-- show surroundings after stopping on a breakpoint
+:set stop :list
+
+-- green bold lambda
+:set prompt      "\ESC[1;32mλ > \ESC[m"
+:set prompt-cont "\ESC[1;32m > \ESC[m"
+
+-- useful flags
+:set -fprint-explicit-foralls
+:set +m
+:set +s
+:set +t
+
+-- pretty print
+:set -package pretty-simple
+:set -interactive-print=Text.Pretty.Simple.pPrint
