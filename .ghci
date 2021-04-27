@@ -15,10 +15,20 @@
 
 -- useful flags
 :set -fprint-explicit-foralls
+
+-- enable parsing of multiline commands.
 :set +m
+
+-- display some stats after evaluating each expression
 :set +s
+
+-- display the type of each variable
 :set +t
 
 -- pretty print
 :set -package pretty-simple
 :set -interactive-print=Text.Pretty.Simple.pPrint
+
+-- stop on problems
+:set -fbreak-on-exception
+:set -fbreak-on-error
